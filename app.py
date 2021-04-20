@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_recipes")
 def hello():
-    return "Hello World"
+    return render_template("recipes.html")
 
 
 if __name__ == "__main__":
