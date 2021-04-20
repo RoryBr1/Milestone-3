@@ -1,20 +1,16 @@
   body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
   }
 
   main {
-    flex: 1 0 auto;
+      flex: 1 0 auto;
   }
 
-nav {
-    height: 100px;
-    line-height: 100px;
-}
-
-.footer-custom {
-    height:20px;
-    line-height:5px;
-    padding-left:15%;
-}
+  nav {
+      height: 100px;
+      line-height: 100px;
+      padding-left: 10%;
+      padding-right: 10%;
+  }
