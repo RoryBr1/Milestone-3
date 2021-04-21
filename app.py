@@ -23,6 +23,65 @@ mongo = PyMongo(app)
 def get_recipes():
     return render_template("recipes.html")
 
+@app.route("/admin_login", methods=["GET", "POST"])
+def admin_login():
+    if request.method == "POST":
+        # check if username exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            # ensure hashed password matches user input
+            if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Logged in as {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "get_recipes", username=session["user"]))
+            else:
+                # invalid password match
+                flash("Incorrect Password")
+                return redirect(url_for("admin_login"))
+
+        else:
+            # username doesn't exist
+            flash("Incorrect Username")
+            return redirect(url_for("admin_login"))
+
+    return render_template("admin-login.html")
+
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    if request.method == "POST":
+        # check if username already exists in db
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            flash("Username already exists")
+            return redirect(url_for("register"))
+
+        register = {
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the new user into 'session' cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successful!")
+        return redirect(url_for("profile", username=session["user"]))
+
+    return render_template("admin-login.html")
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("get_recipes"))
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
