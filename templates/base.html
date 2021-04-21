@@ -31,9 +31,6 @@
                     <img src="../static/images/logo.png" alt="JunkFoodVegan Logo" id="logo" height=100>
                 </a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                     {% if session.user|lower == "admin1"|lower %}
-                    <li><a href="{{ url_for('logout') }}" class="waves-effect waves-light btn"><i class="material-icons right">logout</i>Logout as Admin</a></li>
-                    {% endif %}
                     <li><a href="http://www.facebook.com" target="_blank">
                             <i class="fab fa-facebook-f"></i>
                         </a></li>
@@ -53,15 +50,17 @@
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
-                      <div class="row">
-                            <div class="col s6">
-                            <div class="card grey lighten-5">
-                                <div class="card-content grey-text text-darken-4">
-                                {{ message }}
+                    <div class="container center-align">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="card grey lighten-5">
+                                    <div class="card-content grey-text text-darken-4">
+                                        <p>{{ message }}</p>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
                         </div>
+                    </div>
                 {% endfor %}
             {% endif %}
         {% endwith %}
@@ -91,7 +90,12 @@
                   <li><a class="grey-text text-lighten-3" href="http://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
                   <li><a class="grey-text text-lighten-3" href="http://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
                   <li><a class="grey-text text-lighten-3" href="http://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                  <br>
+                  {% if session.user|lower == "admin1"|lower %}
+                  <li><a class="grey-text text-lighten-3" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout as Admin</a></li>
+                  {% else %}
                   <li><a class="grey-text text-lighten-3" href="{{ url_for('admin_login') }}"><i class="fas fa-key"></i> Admin Login</a></li>
+                  {% endif %}
                 </ul>
               </div>
             </div>

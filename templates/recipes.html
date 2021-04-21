@@ -1,19 +1,31 @@
 {% extends "base.html" %}
-
 {% block content %}
-  <div class="row">
-    <div class="col s12">
-      <div class="card grey lighten-5">
-        <div class="card-content grey-text text-darken-4">
-          <span class="card-title">Card Title</span>
-          <p>I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively.</p>
+{% if session.user|lower == "admin1"|lower %}
+<div class="container center-align">
+    <div class="row">
+        <div class="col s12">
+            <div class="card grey lighten-5">
+                <div class="card-content grey-text text-darken-4">
+                    <span class="card-title"><i class="fas fa-pen-square"></i> Admin Panel</span>
+                </div>
+                <div class="card-action center">
+                    <a href="#" class="btn"> <i class="fas fa-plus-square"></i> Add New Recipe</a>
+                    <a href="#" class="btn"><i class="fas fa-folder"></i> Manage Categories</a>
+                    <a href="{{ url_for('logout') }}" class="btn"><i class="fas fa-sign-out-alt"></i> Logout as Admin</a>
+                </div>
+            </div>
         </div>
-        <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+{% endif %}
+
+{% for recipe in recipes %}
+    <div class="card"><img src="{{ recipe.img_url }}" height=150>
+                
+                    <strong>{{ recipe.recipe_name }}</strong>
+                <p>Ingredients: {{ recipe.ingredients }}</p>
+                <p><em>Prep time: {{ recipe.prep_time }}</em></p>
+                
+    </div>
+{% endfor %}
 {% endblock %}
