@@ -1,4 +1,5 @@
   body {
+      background-image: url("../images/pizza-background.jpg");
       display: flex;
       min-height: 100vh;
       flex-direction: column;
@@ -9,8 +10,17 @@
   }
 
   nav {
+      background-color: rgba(245, 124, 0, 0.85);
       height: 100px;
       line-height: 100px;
       padding-left: 10%;
       padding-right: 10%;
+  }
+
+  .page-footer {
+      background-color: rgba(230, 81, 0, 0.55);
+  }
+
+  .footer-copyright {
+      background-color: rgba(38, 50, 56, 0.7) !important;
   }
