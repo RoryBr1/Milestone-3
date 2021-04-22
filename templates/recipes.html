@@ -1,33 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 {% if session.user|lower == "admin1"|lower %}
+
 <div class="container center-align">
     <div class="row">
         <div class="col s12">
-            <div class="card grey lighten-5">
-                <div class="card-content grey-text text-darken-4">
-                    <span class="card-title"><i class="fas fa-pen-square"></i> Admin Panel</span>
+            <div class="row">
+                <div class="col s12 m4">
+                    <a href="{{ url_for('add_recipe') }}" class="btn orange accent-3 admin-panel-btn hvr-reveal"> <i
+                            class="fas fa-plus-square"></i> Add New
+                        Recipe</a>
                 </div>
-                <div class="card-action center">
-                    <div class="row">
-                        <div class="col s12 m4">
-                            <a href="{{ url_for('add_recipe') }}"
-                                class="btn orange accent-3 admin-panel-btn hvr-reveal"> <i
-                                    class="fas fa-plus-square"></i> Add New
-                                Recipe</a>
-                        </div>
-                        <div class="col s12 m4">
-                            <a href="#" class="btn orange darken-2 admin-panel-btn  hvr-reveal"><i
-                                    class="fas fa-folder"></i>
-                                Manage Categories</a>
-                        </div>
-                        <div class="col s12 m4">
-                            <a href="{{ url_for('logout') }}"
-                                class="btn admin-panel-btn red red lighten-2 hvr-reveal"><i
-                                    class="fas fa-sign-out-alt"></i> Logout as
-                                {{ session.user }} </a>
-                        </div>
-                    </div>
+                <div class="col s12 m4">
+                    <a href="#" class="btn orange darken-2 admin-panel-btn  hvr-reveal"><i class="fas fa-folder"></i>
+                        Manage Categories</a>
+                </div>
+                <div class="col s12 m4">
+                    <a href="{{ url_for('logout') }}" class="btn admin-panel-btn red red lighten-2 hvr-reveal"><i
+                            class="fas fa-sign-out-alt"></i> Logout as
+                        {{ session.user }} </a>
                 </div>
             </div>
         </div>
@@ -37,30 +28,52 @@
 
 {% for recipe in recipes %}
 <div class="container">
-    <div class="card "><img src="{{ recipe.img_url }}" height=150>
-
-        <strong>{{ recipe.recipe_name }}</strong>
-        <p><em>Prep time: {{ recipe.prep_time }}</em></p>
-        <p>Ingredients: {{ recipe.ingredients }}</p>
-
-        <p>recipe_desc: {{ recipe.recipe_desc }}</p>
-        <p>added by: {{ recipe.added_by }}</p>
-        <p>added on: {{ recipe.added_on }}</p>
-
-        {% if session.user|lower == "admin1"|lower %}
+    <div class="card ">
         <div class="row">
-            <div class="col s12 m3 right">
-                <a href="{{ url_for('confirm_delete_recipe', recipe_id=recipe._id, recipe_name=recipe.recipe_name) }}" class="btn-small edit-delete-btn red lighten-2 hvr-reveal"> <i
-                        class="fas fa-trash-alt"></i> Delete</a>
+            <div class="col s6 m3"><img src="{{ recipe.img_url }}" height=100></div>
+
+            <h4>{{ recipe.recipe_name }}</h4>
+            <p><em>Prep time: {{ recipe.prep_time }}</em></p>
+            <p>Ingredients: {{ recipe.ingredients }}</p>
+
+            <p>{{ recipe.recipe_desc }}</p>
+            <p>added by: {{ recipe.added_by }}</p>
+            <p>added on: {{ recipe.added_on }}</p>
+
+            {% if session.user|lower == "admin1"|lower %}
+
+            <!-- Delete confirmation modal -->
+            <div id="{{ recipe._id }}" class="modal">
+                <div class="modal-content">
+                    <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i> Delete
+                        "{{ recipe.recipe_name }}" ?</h5><br>
+                    <p class="center">This action cannot be reversed.</p>
+                </div>
+                <div class="modal-footer">
+                    <div class="col s6 valign center-block">
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" data-target="{{ recipe._id }}"
+                        class="btn-small edit-delete-btn red lighten-2 hvr-reveal btn"><i
+                            class="fas fa-trash-alt"></i> Delete</a>
+                            </div>
+                </div>
+            </div><!-- / delete confirmation modal -->
+
+            <div class="row">
+                <div class="col s12 m3 right">
+                    <button data-target="{{ recipe._id }}"
+                        class="btn-small edit-delete-btn red lighten-2 hvr-reveal btn modal-trigger"><i
+                            class="fas fa-trash-alt"></i> Delete</button>
+                </div>
+
+                <div class="col s12 m3 right">
+                    <a href="{{ url_for('add_recipe') }}" class="btn-small edit-delete-btn indigo lighten-2"> <i
+                            class="fas fa-edit"></i>
+                        Edit</a></div>
+
             </div>
-            <div class="col s12 m3 right">
-                <a href="{{ url_for('add_recipe') }}" class="btn-small edit-delete-btn indigo lighten-2"> <i
-                        class="fas fa-edit"></i>
-                    Edit</a></div>
+            {% endif %}
 
         </div>
-        {% endif %}
-
     </div>
 </div>
 {% endfor %}

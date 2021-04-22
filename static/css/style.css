@@ -3,6 +3,7 @@
   body {
       font-family: "Roboto Condensed", sans-serif;
       background-image: url("../images/pizza-background.jpg");
+      background-attachment: fixed;
       display: flex;
       min-height: 100vh;
       flex-direction: column;
@@ -34,7 +35,24 @@
       background-color: rgba(38, 50, 56, 0.7) !important;
   }
 
+  .btn {
+      text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  }
+
+  a {
+      text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  }
+  
+    button {
+      text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  }
+
+    button {
+      text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+  }
+
   button i {
+      text-shadow: none;
       color: rgba(255,255,255,0.8) !important;
       vertical-align: middle;
       padding-left:3px;
@@ -42,6 +60,15 @@
   }
 
   .btn i {
+       text-shadow: none;
+      color: rgba(255,255,255,0.8) !important;
+      vertical-align: middle;
+      padding-left:3px;
+      padding-right:3px;
+  }
+
+    a i {
+         text-shadow: none;
       color: rgba(255,255,255,0.8) !important;
       vertical-align: middle;
       padding-left:3px;
@@ -62,3 +89,4 @@
 .hvr-reveal:before {
 	border-color: rgba(255,255,255,0.1);
 }
+

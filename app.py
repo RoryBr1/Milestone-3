@@ -110,15 +110,10 @@ def add_recipe():
     return render_template("add-recipe.html", categories=categories, prep_times=prep_times)
 
 
-@app.route("/confirm_delete_recipe/<recipe_id>/<recipe_name>")
-def confirm_delete_recipe(recipe_id, recipe_name):
-    return render_template("confirm-delete-recipe.html", recipe_id=recipe_id, recipe_name=recipe_name)
-
-
-@app.route("/delete_recipe/<recipe_id>/<recipe_name>")
-def delete_recipe(recipe_id, recipe_name):
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash(recipe_name + " deleted successfully")
+    flash(" deleted successfully")
     return redirect(url_for("get_recipes"))
 
 
