@@ -7,6 +7,8 @@ from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
+from datetime import date
+today = date.today()
 
 
 app = Flask(__name__)
@@ -77,12 +79,36 @@ def register():
 
     return render_template("admin-login.html")
 
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("get_recipes"))
+
+
+@app.route("/add_recipe", methods=["GET", "POST"])
+def add_recipe():
+    if request.method == "POST":
+        recipe = {
+            "recipe_name": request.form.get("recipe_name"),
+            "prep_time": request.form.get("prep_time"),
+            "category": request.form.get("category"),
+            "ingredients": request.form.get("ingredients"),
+            "recipe_desc": request.form.get("recipe_desc"),
+            "img_url": request.form.get("img_url"),
+            "added_by": session["user"],
+            "added_on": today.strftime("%B %d, %Y")
+        }
+        mongo.db.recipes.insert_one(recipe)
+        flash("Recipe added successfully.")
+        return redirect(url_for("get_recipes"))
+
+    categories = mongo.db.categories.find()
+    prep_times = mongo.db.prep_times.find()
+    return render_template("add-recipe.html", categories=categories, prep_times=prep_times)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

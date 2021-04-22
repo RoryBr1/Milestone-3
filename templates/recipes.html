@@ -9,7 +9,7 @@
                     <span class="card-title"><i class="fas fa-pen-square"></i> Admin Panel</span>
                 </div>
                 <div class="card-action center">
-                    <a href="#" class="btn"> <i class="fas fa-plus-square"></i> Add New Recipe</a>
+                    <a href="{{ url_for('add_recipe') }}" class="btn"> <i class="fas fa-plus-square"></i> Add New Recipe</a>
                     <a href="#" class="btn"><i class="fas fa-folder"></i> Manage Categories</a>
                     <a href="{{ url_for('logout') }}" class="btn"><i class="fas fa-sign-out-alt"></i> Logout as Admin</a>
                 </div>
@@ -22,7 +22,7 @@
 {% for recipe in recipes %}
     <div class="card"><img src="{{ recipe.img_url }}" height=150>
                 
-                    <strong>{{ recipe.recipe_name }}</strong>
+                <strong>{{ recipe.recipe_name }}</strong>
                 <p>Ingredients: {{ recipe.ingredients }}</p>
                 <p><em>Prep time: {{ recipe.prep_time }}</em></p>
                 
