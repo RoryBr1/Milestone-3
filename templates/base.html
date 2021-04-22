@@ -51,7 +51,7 @@
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
-        <div class="container center-align">
+        <div class="container center-align" id="flash-message">
             <div class="row">
                 <div class="col s12">
                     <div class="card grey darken-2">
@@ -98,7 +98,7 @@
                         <br>
                         {% if session.user|lower == "admin1"|lower %}
                         <li><a class="grey-text text-lighten-3" href="{{ url_for('logout') }}"><i
-                                    class="fas fa-sign-out-alt"></i> Logout as Admin</a></li>
+                                    class="fas fa-sign-out-alt"></i> Logout as {{ session.user.capitalize() }}</a></li>
                         {% else %}
                         <li><a class="grey-text text-lighten-3" href="{{ url_for('admin_login') }}"><i
                                     class="fas fa-key"></i> Admin Login</a></li>

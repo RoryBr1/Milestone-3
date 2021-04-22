@@ -21,6 +21,11 @@
       padding-right: 10%;
   }
 
+  /* .invisible is used to hide flash messages after a few seconds */
+  .invisible {
+      display:none;
+  }
+
   .page-footer {
       background-color: rgba(230, 81, 0, 0.55);
   }

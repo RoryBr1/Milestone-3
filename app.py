@@ -10,7 +10,6 @@ if os.path.exists("env.py"):
 from datetime import date
 today = date.today()
 
-
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -92,7 +91,7 @@ def logout():
 def add_recipe():
     if request.method == "POST":
         recipe = {
-            "recipe_name": request.form.get("recipe_name"),
+            "recipe_name": request.form.get("recipe_name").title(),
             "prep_time": request.form.get("prep_time"),
             "category": request.form.get("category"),
             "ingredients": request.form.get("ingredients"),
@@ -101,13 +100,26 @@ def add_recipe():
             "added_by": session["user"],
             "added_on": today.strftime("%B %d, %Y")
         }
+        recipe_name = request.form.get("recipe_name").title()
         mongo.db.recipes.insert_one(recipe)
-        flash("Recipe added successfully.")
+        flash(recipe_name + " added successfully.")
         return redirect(url_for("get_recipes"))
 
     categories = mongo.db.categories.find()
     prep_times = mongo.db.prep_times.find()
     return render_template("add-recipe.html", categories=categories, prep_times=prep_times)
+
+
+@app.route("/confirm_delete_recipe/<recipe_id>/<recipe_name>")
+def confirm_delete_recipe(recipe_id, recipe_name):
+    return render_template("confirm-delete-recipe.html", recipe_id=recipe_id, recipe_name=recipe_name)
+
+
+@app.route("/delete_recipe/<recipe_id>/<recipe_name>")
+def delete_recipe(recipe_id, recipe_name):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash(recipe_name + " deleted successfully")
+    return redirect(url_for("get_recipes"))
 
 
 if __name__ == "__main__":
