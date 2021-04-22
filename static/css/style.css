@@ -35,3 +35,25 @@
       padding-left:3px;
       padding-right:3px;
   }
+
+  .btn i {
+      color: rgba(255,255,255,0.8) !important;
+      vertical-align: middle;
+      padding-left:3px;
+      padding-right:3px;
+  }
+
+  .admin-panel-btn {
+      margin-top:10px;
+      min-width:100%;
+  }
+
+  .edit-delete-btn {
+      min-width:100%;
+      margin:0;
+      margin-bottom:10px;
+  }
+
+.hvr-reveal:before {
+	border-color: rgba(255,255,255,0.1);
+}
