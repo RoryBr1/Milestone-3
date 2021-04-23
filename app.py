@@ -85,7 +85,7 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("get-recipes"))
+    return redirect(url_for("get_recipes"))
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -104,7 +104,7 @@ def add_recipe():
         recipe_name = request.form.get("recipe_name").title()
         mongo.db.recipes.insert_one(recipe)
         flash(recipe_name + " added successfully.")
-        return redirect(url_for("get-recipes"))
+        return redirect(url_for("get_recipes"))
 
     categories = mongo.db.categories.find()
     prep_times = mongo.db.prep_times.find()
@@ -115,7 +115,7 @@ def add_recipe():
 def delete_recipe(recipe_id, recipe_name):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash(recipe_name + " has been deleted")
-    return redirect(url_for("get-recipes"))
+    return redirect(url_for("get_recipes"))
 
 
 @app.route("/show_recipe/<recipe_id>")

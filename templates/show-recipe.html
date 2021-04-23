@@ -4,17 +4,20 @@
     <div class="card-panel">
         <div class="row">
             <div class="col s2">
-                <a href="{{ url_for('get_recipes')}}" class="btn orange darken-2 admin-panel-btn  hvr-reveal"><i
-                        class="fas fa-chevron-left"></i>
+                <a href="{{ url_for('get_recipes')}}" class="btn-flat admin-panel-btn  hvr-reveal"><i
+                        class="fas fa-chevron-left grey-text text-lighten-2"></i>
                     Back</a>
             </div>
         </div>
-
+<div class="row">
+    <div class="col s6">
         <h3>{{ recipe.recipe_name }}</h3>
         <p>Posted in <em>{{ recipe.category }}</em> on <em>{{ recipe.added_on }}</em></p>
         <p class="s4"><b>Prep time:</b> {{ recipe.prep_time }}</p>
         <p><b>Ingredients: </b>{{ recipe.ingredients }}</p>
     </div>
-</div>
+    </div>
+    <div class="s6"><img src="{{ recipe.img_url }}"></img></div>
+</div></div>
 
 {% endblock %}

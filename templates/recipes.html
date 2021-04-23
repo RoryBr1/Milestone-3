@@ -2,6 +2,9 @@
 {% block content %}
 {% if session.user|lower == "admin1"|lower %}
 
+<div class="row center">
+    <div class="col s12 white">Header text</div>
+</div>
 <div class="container">
     <div class="row">
         <div class="col s12">
@@ -16,7 +19,7 @@
                         Manage Categories</a>
                 </div>
                 <div class="col s12 m4">
-                    <a href="{{ url_for('logout') }}" class="btn admin-panel-btn red red lighten-2 hvr-reveal"><i
+                    <a href="{{ url_for('logout') }}" class="btn admin-panel-btn red lighten-2 hvr-reveal"><i
                             class="fas fa-sign-out-alt"></i> Logout as
                         {{ session.user }} </a>
                 </div>
@@ -29,9 +32,9 @@
 <div class="container">
     <div class="row">
         {% for recipe in recipes %}
-        <div class="card recipe-card col s12 m3 left ">
-            <img src="{{ recipe.img_url }}">
+        <div class="card recipe-card col s12 left ">
             <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}" class="grey-text text-darken-3">
+                <img src="{{ recipe.img_url }}">
                 <h4>{{ recipe.recipe_name }}</h4>
                 <p><i class="fas fa-clock"></i> {{ recipe.prep_time }}</p>
                 <p>Ingredients: {{ recipe.ingredients }}</p>
@@ -57,6 +60,9 @@
                                         data-target="{{ recipe._id }}"
                                         class="btn-small edit-delete-btn red lighten-2 hvr-reveal"><i
                                             class="fas fa-trash-alt"></i> Delete</a>
+                                    <a href="#!"
+                                        class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
+                                            class="fas fa-trash-alt"></i> Cancel</a>
                                 </div>
                             </div>
                         </div>

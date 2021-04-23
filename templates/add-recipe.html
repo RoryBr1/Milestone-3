@@ -5,70 +5,94 @@
     <div class="row card-panel grey lighten-5">
         <h5 class="center-align"><i class="fas fa-plus grey-text text-lighten-1"></i> Add New Recipe</h5>
         <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-folder-open prefix"></i>
-                    <select id="category_name" name="category_name" class="validate" required>
-                        <option value="" disabled selected>Choose option..</option>
-                        {% for category in categories %}
-                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endfor %}
-                    </select>
-                    <label for="category_name">category</label>
+                <div class="input-field col s12 l8">
+                    <i class="fas fa-utensils prefix orange-text text-darken-2"></i>
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="35" type="text" class="validate"
+                        placeholder="Recipe name" required>
+                    <label for="recipe_name">Recipe Name</label>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12 m8">
-                    <i class="fas fa-utensils prefix"></i>
-                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="validate"
-                        required>
-                    <label for="recipe_name">Recipe name</label>
-                </div>
-                <div class="input-field col s12 m4">
-                    <i class="fas fa-stopwatch prefix"></i>
+                <div class="input-field col s12 l4">
+                    <i class="fas fa-stopwatch prefix orange-text text-darken-2"></i>
                     <select id="prep_time" name="prep_time" class="validate" required>
                         <option value="" disabled selected>Choose option..</option>
                         {% for prep_time in prep_times %}
                         <option value="{{ prep_time.prep_time }}">{{ prep_time.prep_time }}</option>
                         {% endfor %}
                     </select>
-                    <label for="prep_time">Prep time</label>
+                    <label for="prep_time">Prep Time</label>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-pepper-hot prefix"></i>
-                        <input id="ingredients" name="ingredients" minlength="5" maxlength="50" type="text"
-                            class="validate" required>
-                        <label for="ingredients">Ingredients</label>
+                        <i class="fas fa-folder-open prefix orange-text text-darken-2"></i>
+                        <select id="category_name" name="category_name" class="validate" required>
+                            <option value="" disabled selected>Choose option..</option>
+                            {% for category in categories %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="category_name">Category</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-clipboard-list prefix"></i>
-                        <input id="recipe_instructions" name="recipe_instructions" minlength="5" maxlength="50"
-                            type="text" class="validate" required>
-                        <label for="recipe_instructions">Recipe instructions</label>
+                        <i class="fas fa-pepper-hot prefix orange-text text-darken-2"></i>
+                        <textarea id="ingredients" name="ingredients" placeholder="Ingredients" minlength="5"
+                            maxlength="500" type="text" class="materialize-textarea validate" required>
+                        </textarea><label for="ingredients">Ingredients</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-image prefix"></i>
+                        <i class="fas fa-clipboard-list prefix orange-text text-darken-2"></i>
+                        <textarea id="recipe_instructions" name="recipe_instructions" placeholder="Recipe intructions"
+                            minlength="25" maxlength="2000" type="text" class="materialize-textarea validate" required></textarea>
+                        <label for="recipe_instructions">Recipe Instructions</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s11">
+                        <i class="fas fa-image prefix orange-text text-darken-2"></i>
                         <input id="img_url" name="img_url" minlength="5" maxlength="200" type="text" class="validate"
-                            required>
+                            placeholder="https://example.com/image_name.png" required>
                         <label for="img_url">Image URL</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-                            <i class="fas fa-plus-square"></i> Add Recipe
-                        </button>
+                    <div class="input-field col s1">
+                        <a class="btn-floating btn waves-effect waves-light orange lighten-1 modal-trigger"
+                            href="#img-url-info"><i class="fas fa-question"></i></a>
                     </div>
-                </div>
+                    <div class="row"></div>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button type="submit" class="btn-large orange darken-2 text-shadow">
+                                <i class="fas fa-plus-square "></i> Add Recipe
+                            </button>
+                        </div>
+                    </div>
         </form>
+    </div>
+</div>
+
+<!-- img-url info modal -->
+<div id="img-url-info" class="modal">
+    <div class="modal-content center">
+        <p>Images must be uploaded to a hosting platform. We recommend <b><a href="https://postimages.org/"
+                    target="_blank">
+                    Postimages</a></b>.<br> Upload your image, and copy the Direct Link.
+        </p>
+        <p>It is recommended to crop
+            images to 4:3 ratio. This can be done easily using <b><a href="https://croppola.com/"
+                    target="_blank">Croppola</a></b>.</p>
+    </div>
+    <div class="modal-footer">
+        <div class="row center">
+            <a href="#!" class="modal-close btn red lighten-3 text-shadow">Close</a>
+        </div>
     </div>
 </div>
 
