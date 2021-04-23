@@ -2,68 +2,74 @@
 
 {% block content %}
 <div class="container">
-   <div class="row card-panel grey lighten-5">
-                       <h5 class="center-align"><i class="fas fa-plus grey-text text-lighten-1"></i> Add New Recipe</h5>
-      <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
-         <div class="row">
-            <div class="input-field col s12">
-               <i class="fas fa-folder-open prefix"></i>
-               <select id="category_name" name="category_name" class="validate" required>
-                  <option value="" disabled selected>Choose option..</option>
-                  {% for category in categories %}
-                  <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                  {% endfor %}
-               </select>
-               <label for="category_name">category</label>
+    <div class="row card-panel grey lighten-5">
+        <h5 class="center-align"><i class="fas fa-plus grey-text text-lighten-1"></i> Add New Recipe</h5>
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-folder-open prefix"></i>
+                    <select id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose option..</option>
+                        {% for category in categories %}
+                        <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="category_name">category</label>
+                </div>
             </div>
-         </div>
-         <div class="row">
-            <div class="input-field col s12 m8">
-               <i class="fas fa-utensils prefix"></i>
-               <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="validate" required>
-               <label for="recipe_name">Recipe name</label>
-            </div>
-            <div class="input-field col s12 m4">
-               <i class="fas fa-stopwatch prefix"></i>
-               <select id="prep_time" name="prep_time" class="validate" required>
-                  <option value="" disabled selected>Choose option..</option>
-                  {% for prep_time in prep_times %}
-                  <option value="{{ prep_time.prep_time }}">{{ prep_time.prep_time }}</option>
-                  {% endfor %}
-               </select>
-               <label for="prep_time">Prep time</label>
-         </div>
-        <div class="row">
-            <div class="input-field col s12">
-               <i class="fas fa-pencil-alt prefix"></i>
-               <input id="recipe_desc" name="recipe_desc" minlength="5" maxlength="50" type="text" class="validate" required>
-               <label for="recipe_desc">Recipe description</label>
-            </div>
-         </div>
-         <div class="row">
-            <div class="input-field col s12">
-               <i class="fas fa-clipboard-list prefix"></i>
-               <input id="ingredients" name="ingredients" minlength="5" maxlength="50" type="text" class="validate" required>
-               <label for="ingredients">Ingredients</label>
-            </div>
-         </div>
+            <div class="row">
+                <div class="input-field col s12 m8">
+                    <i class="fas fa-utensils prefix"></i>
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="50" type="text" class="validate"
+                        required>
+                    <label for="recipe_name">Recipe name</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <i class="fas fa-stopwatch prefix"></i>
+                    <select id="prep_time" name="prep_time" class="validate" required>
+                        <option value="" disabled selected>Choose option..</option>
+                        {% for prep_time in prep_times %}
+                        <option value="{{ prep_time.prep_time }}">{{ prep_time.prep_time }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="prep_time">Prep time</label>
+                </div>
 
-         <div class="row">
-            <div class="input-field col s12">
-               <i class="fas fa-image prefix"></i>
-               <input id="img_url" name="img_url" minlength="5" maxlength="50" type="text" class="validate" required>
-               <label for="img_url">Image URL</label>
-            </div>
-         </div>
-         <div class="row">
-            <div class="col s12 center-align">
-               <button type="submit" class="btn-large light-blue darken-1 text-shadow">
-               <i class="fas fa-plus-square"></i> Add Recipe 
-               </button>
-            </div>
-         </div>
-      </form>
-   </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-pepper-hot prefix"></i>
+                        <input id="ingredients" name="ingredients" minlength="5" maxlength="50" type="text"
+                            class="validate" required>
+                        <label for="ingredients">Ingredients</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-clipboard-list prefix"></i>
+                        <input id="recipe_instructions" name="recipe_instructions" minlength="5" maxlength="50"
+                            type="text" class="validate" required>
+                        <label for="recipe_instructions">Recipe instructions</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-image prefix"></i>
+                        <input id="img_url" name="img_url" minlength="5" maxlength="200" type="text" class="validate"
+                            required>
+                        <label for="img_url">Image URL</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit" class="btn-large light-blue darken-1 text-shadow">
+                            <i class="fas fa-plus-square"></i> Add Recipe
+                        </button>
+                    </div>
+                </div>
+        </form>
+    </div>
 </div>
 
 {% endblock %}

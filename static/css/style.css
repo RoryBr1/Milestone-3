@@ -1,92 +1,160 @@
- @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap'); 
-  
-  body {
-      font-family: "Roboto Condensed", sans-serif;
-      background-image: url("../images/pizza-background.jpg");
-      background-attachment: fixed;
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-  }
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
-  main {
-      flex: 1 0 auto;
-  }
+ body {
+     font-family: "Roboto Condensed", sans-serif;
+     background-image: url("../images/pizza-background.jpg");
+     background-attachment: fixed;
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+ }
 
-  nav {
-      background-color: rgba(245, 124, 0, 0);
-      box-shadow: none;
-      height: 100px;
-      line-height: 100px;
-      padding-left: 10%;
-      padding-right: 10%;
-  }
+ button {
+     font-family: "Roboto Condensed", sans-serif;
+ }
 
-  /* .invisible is used to hide flash messages after a few seconds */
-  .invisible {
-      display:none;
-  }
+ main {
+     flex: 1 0 auto;
+ }
 
-  .page-footer {
-      background-color: rgba(230, 81, 0, 0.55);
-  }
+ nav {
+     background-color: rgba(245, 124, 0, 0);
+     box-shadow: none;
+     height: 100px;
+     line-height: 100px;
+     padding-left: 10%;
+     padding-right: 10%;
+     padding-top: 5px;
+ }
 
-  .footer-copyright {
-      background-color: rgba(38, 50, 56, 0.7) !important;
-  }
+ /* .invisible is used to hide flash messages after a few seconds */
+ .invisible {
+     display: none;
+ }
 
-  .btn {
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-  }
 
-  a {
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-  }
-  
-    button {
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-  }
+ .btn {
+     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+ }
 
-    button {
-      text-shadow: 2px 2px 2px rgba(0,0,0,0.3);
-  }
+ button {
+     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+ }
 
-  button i {
-      text-shadow: none;
-      color: rgba(255,255,255,0.8) !important;
-      vertical-align: middle;
-      padding-left:3px;
-      padding-right:3px;
-  }
+ button {
+     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+ }
 
-  .btn i {
-       text-shadow: none;
-      color: rgba(255,255,255,0.8) !important;
-      vertical-align: middle;
-      padding-left:3px;
-      padding-right:3px;
-  }
+ button i {
+     text-shadow: none;
+     color: rgba(255, 255, 255, 0.8) !important;
+     vertical-align: middle;
+     padding-left: 3px;
+     padding-right: 3px;
+ }
 
-    a i {
-         text-shadow: none;
-      color: rgba(255,255,255,0.8) !important;
-      vertical-align: middle;
-      padding-left:3px;
-      padding-right:3px;
-  }
+ .btn i {
+     text-shadow: none;
+     color: rgba(255, 255, 255, 0.8) !important;
+     vertical-align: middle;
+     padding-left: 3px;
+     padding-right: 3px;
+ }
 
-  .admin-panel-btn {
-      margin-top:10px;
-      min-width:100%;
-  }
+ a i {
+     text-shadow: none;
+     color: rgba(255, 255, 255, 0.8) !important;
+     vertical-align: middle;
+     padding-left: 3px;
+     padding-right: 3px;
+ }
 
-  .edit-delete-btn {
-      min-width:100%;
-      margin:0;
-      margin-bottom:10px;
-  }
+ .admin-panel-btn {
+     margin-top: 10px;
+     min-width: 100%;
+ }
 
-.hvr-reveal:before {
-	border-color: rgba(255,255,255,0.1);
-}
+ .edit-delete-btn {
+     position: relative;
+     top: 100%;
+     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+     min-width: 100%;
+     margin: 0;
+     margin-bottom: 10px;
+ }
 
+ .recipe-card {
+     margin: 0.25%;
+     width: 33% !important;
+     height: 35vw;
+ }
+
+ .recipe-card img {
+     object-fit: cover;
+     width: 100%;
+     height: 200px;
+ }
+
+ .page-footer {
+     background-color: rgba(230, 81, 0, 0.55);
+ }
+
+ .footer-copyright {
+     background-color: rgba(38, 50, 56, 0.7) !important;
+ }
+
+ .hvr-reveal:before {
+     border-color: rgba(255, 255, 255, 0.2);
+ }
+
+ /* hide flash message */
+ #flash-message {
+     position: fixed;
+     top: 25px;
+     left: 33%;
+     width: 33%;
+     z-index: 1000;
+     background-color: rgba(0, 0, 0, 0.8);
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     -moz-animation: fadeOut 0.8s ease-in 1.5s forwards;
+     /* Firefox */
+     -webkit-animation: fadeOut 0.8s ease-in 1.5s forwards;
+     /* Safari and Chrome */
+     -o-animation: fadeOut 0.8s ease-in 1.5s forwards;
+     /* Opera */
+     animation: fadeOut 0.8s ease-in 1.5s forwards;
+     -webkit-animation-fill-mode: forwards;
+     animation-fill-mode: forwards;
+ }
+
+ @media only screen and (max-width: 600px) {
+     .container {
+         width: 100%;
+     }
+
+     .recipe-card {
+         margin: 1%;
+         width: 99% !important;
+         height: fit-content;
+     }
+ }
+
+ @keyframes fadeOut {
+     0% {
+         opacity: 1;
+     }
+
+     100% {
+         opacity: 0;
+     }
+ }
+
+ @-webkit-keyframes fadeOut {
+     0% {
+         opacity: 1;
+     }
+
+     100% {
+         opacity: 0;
+     }
+ }

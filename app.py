@@ -25,6 +25,7 @@ def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
+
 @app.route("/admin_login", methods=["GET", "POST"])
 def admin_login():
     if request.method == "POST":
@@ -84,7 +85,7 @@ def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("get_recipes"))
+    return redirect(url_for("get-recipes"))
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -103,18 +104,24 @@ def add_recipe():
         recipe_name = request.form.get("recipe_name").title()
         mongo.db.recipes.insert_one(recipe)
         flash(recipe_name + " added successfully.")
-        return redirect(url_for("get_recipes"))
+        return redirect(url_for("get-recipes"))
 
     categories = mongo.db.categories.find()
     prep_times = mongo.db.prep_times.find()
     return render_template("add-recipe.html", categories=categories, prep_times=prep_times)
 
 
-@app.route("/delete_recipe/<recipe_id>")
-def delete_recipe(recipe_id):
+@app.route("/delete_recipe/<recipe_id>/<recipe_name>")
+def delete_recipe(recipe_id, recipe_name):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash(" deleted successfully")
-    return redirect(url_for("get_recipes"))
+    flash(recipe_name + " has been deleted")
+    return redirect(url_for("get-recipes"))
+
+
+@app.route("/show_recipe/<recipe_id>")
+def show_recipe(recipe_id):
+    recipe = mongo.db.recipes.find_one({"_id" : ObjectId(recipe_id)}) 
+    return render_template("show-recipe.html", recipe=recipe)
 
 
 if __name__ == "__main__":
