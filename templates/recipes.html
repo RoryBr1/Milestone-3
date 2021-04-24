@@ -67,26 +67,25 @@
                             </div>
                         </div>
                     </div>
-            </a>
-        </div>
+                </div>
 
-        <div class="row">
-            <div class="col s6 right">
-                <button data-target="{{ recipe._id }}"
-                    class="btn-small edit-delete-btn red lighten-2 hvr-reveal btn modal-trigger"
-                    alt="Delete this recipe"><i class="fas fa-trash-alt"></i> <span
-                        class="hide-on-small-only">Delete</span> </button>
-            </div>
+                <div class="row">
+                    <div class="col s6 right">
+                        <button data-target="{{ recipe._id }}"
+                            class="btn-small edit-delete-btn red lighten-2 hvr-reveal btn modal-trigger"
+                            alt="Delete this recipe"><i class="fas fa-trash-alt"></i> <span
+                                class="hide-on-small-only">Delete</span> </button>
+                    </div>
 
-            <div class="col s6 right">
-                <a href="{{ url_for('add_recipe') }}" class="btn-small edit-delete-btn indigo lighten-2 hvr-reveal"
-                    alt="Edit this recipe">
-                    <i class="fas fa-edit"></i>
-                    <span class="hide-on-small-only">Edit</span></a></div>
+                    <div class="col s6 right">
+                        <a href="{{ url_for('add_recipe') }}"
+                            class="btn-small edit-delete-btn indigo lighten-2 hvr-reveal" alt="Edit this recipe">
+                            <i class="fas fa-edit"></i>
+                            <span class="hide-on-small-only">Edit</span></a></div>
+                </div>
+                {% endif %}
         </div>
-        {% endif %}
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
 </div>
 {% endblock %}

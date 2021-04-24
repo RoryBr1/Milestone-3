@@ -1,163 +1,162 @@
- @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
-
- body {
-     font-family: "Roboto Condensed", sans-serif;
-     background-image: url("../images/pizza-background.jpg");
-     background-attachment: fixed;
-     display: flex;
-     min-height: 100vh;
-     flex-direction: column;
- }
-
- button {
-     font-family: "Roboto Condensed", sans-serif;
- }
-
- main {
-     flex: 1 0 auto;
- }
-
- nav {
-     background-color: rgba(245, 124, 0, 0);
-     box-shadow: none;
-     height: 100px;
-     line-height: 100px;
-     padding-left: 10%;
-     padding-right: 10%;
-     padding-top: 5px;
- }
-
- /* .invisible is used to hide flash messages after a few seconds */
- .invisible {
-     display: none;
- }
 
 
- .btn {
-     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
- }
+body {
+    background-image: url("../images/pizza-background.jpg");
+    background-attachment: fixed;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 
- button {
-     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
- }
+button {
+    font-family: "Roboto Condensed", sans-serif;
+}
 
- button {
-     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
- }
+main {
+    flex: 1 0 auto;
+}
 
- button i {
-     text-shadow: none;
-     color: rgba(255, 255, 255, 0.8) !important;
-     vertical-align: middle;
-     padding-left: 3px;
-     padding-right: 3px;
- }
+nav {
+    background-color: rgba(245, 124, 0, 0);
+    box-shadow: none;
+    height: 100px;
+    line-height: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5px;
+}
 
- .btn i {
-     text-shadow: none;
-     color: rgba(255, 255, 255, 0.8) !important;
-     vertical-align: middle;
-     padding-left: 3px;
-     padding-right: 3px;
- }
+/* .invisible is used to hide flash messages after a few seconds */
+.invisible {
+    display: none;
+}
 
- a i {
-     text-shadow: none;
-     color: rgba(255, 255, 255, 0.8) !important;
-     vertical-align: middle;
-     padding-left: 3px;
-     padding-right: 3px;
- }
 
- .admin-panel-btn {
-     margin-top: 10px;
-     min-width: 100%;
- }
+.btn {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
 
- .edit-delete-btn {
-     position: relative;
-     top: 100%;
-     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-     min-width: 100%;
-     margin: 0;
-     margin-bottom: 10px;
- }
+button {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
 
- .recipe-card {
-     margin: 0.25%;
-     width: 33% !important;
-     height: 35vw;
- }
+button {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
 
- .recipe-card img {
-     border-bottom-left-radius: 5px;
-     border-bottom-right-radius: 5px;
-     box-shadow:0px 2px 4px rgba(0,0,0,0.2);
-     object-fit: cover;
-     width: 100%;
-     height: 200px;
- }
+button i {
+    text-shadow: none;
+    color: rgba(255, 255, 255, 0.8) !important;
+    vertical-align: middle;
+    padding-left: 3px;
+    padding-right: 3px;
+}
 
- .page-footer {
-     background-color: rgba(0, 0, 0, 0.4);
- }
+.btn i {
+    text-shadow: none;
+    color: rgba(255, 255, 255, 0.8) !important;
+    vertical-align: middle;
+    padding-left: 3px;
+    padding-right: 3px;
+}
 
- .footer-copyright {
-     background-color: rgba(38, 50, 56, 0.7) !important;
- }
+a i {
+    text-shadow: none;
+    color: rgba(255, 255, 255, 0.8) !important;
+    vertical-align: middle;
+    padding-left: 3px;
+    padding-right: 3px;
+}
 
- .hvr-reveal:before {
-     border-color: rgba(255, 255, 255, 0.2);
- }
+.admin-panel-btn {
+    margin-top: 10px;
+    min-width: 100%;
+}
 
- /* hide flash message */
- #flash-message {
-     position: fixed;
-     top: 25px;
-     left: 33%;
-     width: 33%;
-     z-index: 1000;
-     background-color: rgba(0, 0, 0, 0.8);
-     border: 1px solid rgba(255, 255, 255, 0.3);
-     -moz-animation: fadeOut 0.8s ease-in 1.5s forwards;
-     /* Firefox */
-     -webkit-animation: fadeOut 0.8s ease-in 1.5s forwards;
-     /* Safari and Chrome */
-     -o-animation: fadeOut 0.8s ease-in 1.5s forwards;
-     /* Opera */
-     animation: fadeOut 0.8s ease-in 1.5s forwards;
-     -webkit-animation-fill-mode: forwards;
-     animation-fill-mode: forwards;
- }
+.edit-delete-btn {
+    position: relative;
+    top: 100%;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+    min-width: 100%;
+    margin: 0;
+    margin-bottom: 10px;
+}
 
- @media only screen and (max-width: 600px) {
-     .container {
-         width: 100%;
-     }
+.recipe-card {
+    margin: 0.25%;
+    width: 33% !important;
+    height: 35vw;
+}
 
-     .recipe-card {
-         margin: 1%;
-         width: 99% !important;
-         height: fit-content;
-     }
- }
+.recipe-card img {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    width: 100%;
+    height: 200px;
+}
 
- @keyframes fadeOut {
-     0% {
-         opacity: 1;
-     }
+.page-footer {
+    background-color: rgba(0, 0, 0, 0.4);
+}
 
-     100% {
-         opacity: 0;
-     }
- }
+.footer-copyright {
+    background-color: rgba(38, 50, 56, 0.7) !important;
+}
 
- @-webkit-keyframes fadeOut {
-     0% {
-         opacity: 1;
-     }
+.hvr-reveal:before {
+    border-color: rgba(255, 255, 255, 0.2);
+}
 
-     100% {
-         opacity: 0;
-     }
- }
+/* hide flash message */
+#flash-message {
+    position: fixed;
+    top: 25px;
+    left: 33%;
+    width: 33%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    -moz-animation: fadeOut 0.8s ease-in 1.5s forwards;
+    /* Firefox */
+    -webkit-animation: fadeOut 0.8s ease-in 1.5s forwards;
+    /* Safari and Chrome */
+    -o-animation: fadeOut 0.8s ease-in 1.5s forwards;
+    /* Opera */
+    animation: fadeOut 0.8s ease-in 1.5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+
+    .recipe-card {
+        margin: 1%;
+        width: 99% !important;
+        height: fit-content;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
