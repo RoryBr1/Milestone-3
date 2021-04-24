@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+{% for category in categories %}
+
+<div class="container">
+    <div class="row center">
+        <div class="col s12 m12">
+            <div class="card">
+                <div class="card-content grey-text darken-4">
+                    <span class="card-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action s12">
+                    <button data-target="#"
+                        class="btn-small red lighten-2 hvr-reveal btn modal-trigger indigo lighten-2"
+                        alt="Edit this category"><i class="fas fa-edit"></i>Edit
+                    </button>
+                    <button data-target="{{ category._id }}"
+                        class="btn-small red lighten-2 hvr-reveal btn modal-trigger" alt="Delete this category"><i
+                            class="fas fa-trash-alt"></i> Delete </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div id="{{ category._id }}" class="modal">
+    <div class="container">
+        <div class="modal-content">
+            <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i> Delete
+                "{{ category.category_name }}" ?</h5><br>
+            <p class="center">This action cannot be reversed.</p>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col s12">
+                    <a href="{{ url_for('delete_category', category_id=category._id, category_name=category.category_name) }}"
+                        data-target="{{ category._id }}" class="btn-small edit-delete-btn red lighten-2 hvr-reveal"><i
+                            class="fas fa-trash-alt"></i> Delete</a>
+                    <a href="#!" class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
+                            class="fas fa-times"></i> Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endblock %}

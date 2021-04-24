@@ -124,6 +124,19 @@ def show_recipe(recipe_id):
     return render_template("show-recipe.html", recipe=recipe)
 
 
+@app.route("/show_categories")
+def show_categories():
+    categories = mongo.db.categories.find()
+    return render_template("show-categories.html", categories=categories)
+
+
+@app.route("/delete_category/<category_id>/<category_name>")
+def delete_category(category_id, category_name):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash(category_name + " has been deleted")
+    return redirect(url_for("show_categories"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
