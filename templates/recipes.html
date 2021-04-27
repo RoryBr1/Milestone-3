@@ -2,9 +2,7 @@
 {% block content %}
 {% if session.user|lower == "admin1"|lower %}
 
-<div class="row center">
-    <div class="col s12 white">Header text</div>
-</div>
+
 <div class="container">
     <div class="row">
         <div class="col s12">
@@ -29,6 +27,20 @@
     </div>
 </div>
 {% endif %}
+
+<div class="container white">
+     <div class="input-field col s12">
+    <select>
+      <option value="" disabled selected>All recipes</option>
+      <option value="1">Breakfasts</option>
+      <option value="2">Appetizers</option>
+      <option value="3">Desserts</option>
+      <option value="3">Main dishes</option>
+      <option value="3">Holiday foods</option>
+    </select>
+    <label>View by category</label>
+  </div>
+</div>
 
 <div class="container">
     <div class="row">
