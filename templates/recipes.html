@@ -1,8 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
+
+<div class="container white">
+    <div class="card-panel">
+        <div class="row">
+            <div class="input-field col s12 m6">
+                <i class="fas fa-search grey-text text-lighten-1 prefix"></i><input placeholder="Search recipes.."
+                    id="search_input" type="text" class="validate">
+            </div>
+            <div class="input-field col s12 m6">
+                <select>
+                    <option value="" disabled selected>All recipes</option>
+                    {% for category in categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label>View by category</label>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% if session.user|lower == "admin1"|lower %}
-
-
 <div class="container">
     <div class="row">
         <div class="col s12">
@@ -28,20 +47,6 @@
 </div>
 {% endif %}
 
-<div class="container white">
-     <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>All recipes</option>
-      <option value="1">Breakfasts</option>
-      <option value="2">Appetizers</option>
-      <option value="3">Desserts</option>
-      <option value="3">Main dishes</option>
-      <option value="3">Holiday foods</option>
-    </select>
-    <label>View by category</label>
-  </div>
-</div>
-
 <div class="container">
     <div class="row">
         {% for recipe in recipes %}
@@ -62,7 +67,8 @@
                 <div id="{{ recipe._id }}" class="modal">
                     <div class="container">
                         <div class="modal-content">
-                            <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i> Delete
+                            <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i>
+                                Delete
                                 "{{ recipe.recipe_name }}" ?</h5><br>
                             <p class="center">This action cannot be reversed.</p>
                         </div>

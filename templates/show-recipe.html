@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+
 <div class="container">
     <div class="card-panel">
         <div class="row">
@@ -16,8 +17,10 @@
                 <p class="s4"><b>Prep time:</b> {{ recipe.prep_time }}</p>
                 <p><b>Ingredients: </b>{{ recipe.ingredients }}</p>
             </div>
+            <div class="col s6">
+                <img src="{{ recipe.img_url }}" class="recipe-page-image"></img>
+            </div>
         </div>
-        <div class="s6"><img src="{{ recipe.img_url }}"></img></div>
     </div>
 </div>
 
