@@ -1,6 +1,7 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
+    font-family: 'Poppins', sans-serif;
     background-image: url("../images/pizza-background.jpg");
     background-attachment: fixed;
     display: flex;
@@ -41,6 +42,7 @@ button {
 }
 
 button {
+    font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -84,7 +86,7 @@ a i {
 
 .recipe-card {
     margin: 0.25%;
-    width: 33% !important;
+    width: 100% !important;
     height: 35vw;
 }
 
@@ -97,9 +99,10 @@ a i {
     height: 200px;
 }
 
-.recipe-page-image {
-    max-width:100%;
+#recipe-page-image {
+    width:100%;
     max-height:300px;
+    object-fit: contain;
 }
 
 .page-footer {

@@ -1,23 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="container white">
+<div class="container">
     <div class="card-panel">
-        <div class="row">
-            <div class="input-field col s12 m6">
-                <i class="fas fa-search grey-text text-lighten-1 prefix"></i><input placeholder="Search recipes.."
-                    id="search_input" type="text" class="validate">
+        <form action="{{ url_for('search') }}" method="post" class="col s12">
+            <div class="row valign-wrapper center-align">
+                <div class="input-field col s12">
+                    <i class="fas fa-search grey-text text-lighten-1 prefix"></i>
+                    <input type="text" name="query" id="query" minlength="3" class="validate" required>
+                    <label for="query">Search recipes</label>
+                </div>
+                <div class="col s12">
+                    <button type="submit" class="light-blue darken-1 btn text-shadow">
+                        <i class="fas fa-search left"></i> Search
+                    </button>
+                </div>
             </div>
-            <div class="input-field col s12 m6">
-                <select>
-                    <option value="" disabled selected>All recipes</option>
-                    {% for category in categories %}
-                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                    {% endfor %}
-                </select>
-                <label>View by category</label>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
@@ -47,15 +46,16 @@
 </div>
 {% endif %}
 
+{% if recipes|length > 0 %}
 <div class="container">
     <div class="row">
         {% for recipe in recipes %}
-        <div class="card recipe-card col s12 left ">
+        <div class="card recipe-card col s12 m6 left ">
             <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}" class="grey-text text-darken-3">
                 <img src="{{ recipe.img_url }}">
-                <h4>{{ recipe.recipe_name }}</h4>
-                <p><i class="fas fa-clock"></i> {{ recipe.prep_time }}</p>
-                <p>Ingredients: {{ recipe.ingredients }}</p>
+                <h5>{{ recipe.recipe_name }}</h5>
+                <p><i class="fas fa-stopwatch prefix grey-text"></i> {{ recipe.prep_time }}</p>
+                <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
 
                 <p>{{ recipe.recipe_desc }}</p>
                 <p>added by: {{ recipe.added_by }}</p>
@@ -106,4 +106,13 @@
         {% endfor %}
     </div>
 </div>
+{% else %}
+
+<div class="container center valign-wrapper">
+    <div class="row">
+        <h5>No results found.</h5>
+        <a href="{{ url_for('get_recipes') }}">Back to homepage.</a>
+    </div>
+</div>
+{% endif %}
 {% endblock %}

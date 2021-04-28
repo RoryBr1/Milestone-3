@@ -9,10 +9,12 @@
             <div class="row">
                 <div class="input-field col s12 l8">
                     <i class="fas fa-utensils prefix orange-text text-darken-2"></i>
-                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="35" type="text" class="validate"
+                    <input id="recipe_name" name="recipe_name" minlength="5" maxlength="24" type="text" class="validate"
                         placeholder="Recipe name" required>
                     <label for="recipe_name">Recipe Name</label>
+                    <span class="helper-text" data-error="Must be between 5 and 24 characters." data-success=""></span>
                 </div>
+
                 <div class="input-field col s12 l4">
                     <i class="fas fa-stopwatch prefix orange-text text-darken-2"></i>
                     <select id="prep_time" name="prep_time" class="validate" required>
@@ -40,18 +42,19 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-pepper-hot prefix orange-text text-darken-2"></i>
-                        <textarea id="ingredients" name="ingredients" placeholder="Type each ingredient on a new line" minlength="5"
-                            maxlength="500" type="text" class="materialize-textarea validate" required>
-                        </textarea><label for="ingredients">Ingredients</label>
+                        <textarea id="ingredients" name="ingredients" placeholder="Type each ingredient on a new line"
+                            minlength="25" maxlength="2000" type="text" class="materialize-textarea validate"
+                            required></textarea>
+                        <label for="ingredients">Ingredients</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="fas fa-clipboard-list prefix orange-text text-darken-2"></i>
-                        <textarea id="recipe_instructions" name="recipe_instructions" placeholder="Type each step on a new line"
-                            minlength="25" maxlength="2000" type="text" class="materialize-textarea validate"
-                            required></textarea>
+                        <textarea id="recipe_instructions" name="recipe_instructions"
+                            placeholder="Type each step on a new line" minlength="25" maxlength="2000" type="text"
+                            class="materialize-textarea validate" required></textarea>
                         <label for="recipe_instructions">Recipe Instructions</label>
                     </div>
                 </div>
@@ -67,19 +70,20 @@
                         <a class="btn-floating btn waves-effect waves-light orange lighten-1 modal-trigger"
                             href="#img-url-info"><i class="fas fa-question"></i></a>
                     </div>
-                    <div class="row"></div>
-                    <div class="row">
-                        <div class="col s12 center-align">
-                            <button type="submit" class="btn-large orange darken-2 text-shadow">
-                                <i class="fas fa-plus-square "></i> Add Recipe
-                            </button>
-                        </div>
+                </div>
+
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit" class="btn-large orange darken-2 text-shadow">
+                            <i class="fas fa-plus-square "></i> Add Recipe
+                        </button>
                     </div>
+                </div>
         </form>
     </div>
 </div>
 
-<!-- img-url info modal -->
+<!-- Image URL information modal -->
 <div id="img-url-info" class="modal">
     <div class="modal-content center">
         <p>Images must be uploaded to a hosting platform. We recommend <b><a href="https://postimages.org/"

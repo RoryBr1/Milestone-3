@@ -23,9 +23,15 @@ mongo = PyMongo(app)
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
-    categories = list(mongo.db.categories.find())
-    return render_template("recipes.html", recipes=recipes, categories=categories)
+    return render_template("recipes.html", recipes=recipes)
 
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    flash("Showing results for " + "'" + query + "'")
+    return render_template("recipes.html", recipes=recipes)
 
 @app.route("/admin_login", methods=["GET", "POST"])
 def admin_login():
@@ -95,9 +101,9 @@ def add_recipe():
         recipe = {
             "recipe_name": request.form.get("recipe_name").title(),
             "prep_time": request.form.get("prep_time"),
-            "category": request.form.get("category"),
+            "category_name": request.form.get("category_name"),
             "ingredients": request.form.get("ingredients"),
-            "recipe_desc": request.form.get("recipe_desc"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
             "img_url": request.form.get("img_url"),
             "added_by": session["user"],
             "added_on": today.strftime("%B %d, %Y")
