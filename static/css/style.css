@@ -1,22 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 body {
-    font-family: 'Poppins', sans-serif;
-    background-image: url("../images/pizza-background.jpg");
+    background-color: lightgray;
     background-attachment: fixed;
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
 
-button {
-    font-family: "Roboto Condensed", sans-serif;
-}
-
 main {
     flex: 1 0 auto;
 }
 
+/* Navbar Styling */
 nav {
     background-color: rgba(245, 124, 0, 0.75);
     box-shadow: none;
@@ -27,22 +21,33 @@ nav {
     
 }
 
-/* .invisible is used to hide flash messages after a few seconds */
-.invisible {
-    display: none;
+/* Search Bar Styling */
+.search-panel {
+    background-color: rgba(255,255,255,0.7);
+    padding-left:10px;
+    padding-right:10px;
+    margin-top:10px;
 }
 
+.search-panel input[type=text] {
+    height:40px;
+    background-color: white;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    padding-left:16px;
+    margin-bottom:0px;
+}
 
+.search-button {
+    height:40px;
+    width:95%;
+}
+
+/* Button Styling */
 .btn {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 button {
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-button {
-    font-family: 'Poppins', sans-serif;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
@@ -84,18 +89,28 @@ a i {
     margin-bottom: 10px;
 }
 
+/* Recipe Card Styling */
 .recipe-card {
-    margin: 0.25%;
-    width: 100% !important;
-    height: 35vw;
+
 }
 
-.recipe-card img {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+.recipe-card h4 {
+    background: rgba(0, 0, 0, 0.7);
+    padding:7px;
+    text-shadow: 0px 0px 6px black !important;
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+}
+
+.recipe-card-category {
+    font-size:1.4rem;
+    padding:4px;
+    background: rgba(0,0,0,0.6);
+    box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+}
+
+.recipe-card-img {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     object-fit: cover;
-    width: 100%;
     height: 200px;
 }
 
@@ -105,6 +120,8 @@ a i {
     object-fit: contain;
 }
 
+
+/* Footer Styling */
 .page-footer {
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -117,15 +134,16 @@ a i {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* hide flash message */
+/* Flash Message */
 #flash-message {
     position: fixed;
     top: 25px;
     left: 33%;
     width: 33%;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius:4px;
     -moz-animation: fadeOut 0.8s ease-in 1.5s forwards;
     /* Firefox */
     -webkit-animation: fadeOut 0.8s ease-in 1.5s forwards;
@@ -137,6 +155,7 @@ a i {
     animation-fill-mode: forwards;
 }
 
+/* Small Screen Media Queries */
 @media only screen and (max-width: 600px) {
     .container {
         width: 100%;
@@ -149,6 +168,7 @@ a i {
     }
 }
 
+/* Animations */
 @keyframes fadeOut {
     0% {
         opacity: 1;
