@@ -33,6 +33,7 @@ def search():
     flash("Showing results for " + "'" + query + "'")
     return render_template("recipes.html", recipes=recipes)
 
+
 @app.route("/admin_login", methods=["GET", "POST"])
 def admin_login():
     if request.method == "POST":
@@ -48,7 +49,7 @@ def admin_login():
                         flash("Logged in as {}".format(
                             request.form.get("username")))
                         return redirect(url_for(
-                            "get_recipes", username=session["user"]))
+                            "get_recipes"))
             else:
                 # invalid password match
                 flash("Incorrect Password")
