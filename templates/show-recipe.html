@@ -11,15 +11,35 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12 m6">
+            <div class="col s12 m6 right-align">
                 <h3>{{ recipe.recipe_name }}</h3>
                 <p>Posted in <em>{{ recipe.category_name }}</em> on <em>{{ recipe.added_on }}</em></p>
                 <p class="s4"><b>Prep time:</b> {{ recipe.prep_time }}</p>
-                <p><b>Ingredients: </b>{{ recipe.ingredients }}</p>
-                <p>{{ recipe.recipe_instructions }}</p>
             </div>
             <div class="col s12 m6">
                 <img src="{{ recipe.img_url }}" id="recipe-page-image"></img>
+                <a href="#" class="btn-small right">Facebook</a>
+                <a href="#" class="btn-small right">Facebook</a>
+            </div>
+        </div>
+        <div class="div row">
+            <div class="s6">
+                <ul>
+                    {% for item in recipe.ingredients.splitlines() %}
+                    <li>
+                        • {{ item }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="s6">
+                <ol>
+                    {% for item in recipe.recipe_instructions.splitlines() %}
+                    <li>
+                        {{ item }}
+                    </li>
+                    {% endfor %}
+                </ol>
             </div>
         </div>
     </div>

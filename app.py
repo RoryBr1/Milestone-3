@@ -45,11 +45,11 @@ def admin_login():
             # ensure hashed password matches user input
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
-                        session["user"] = request.form.get("username").lower()
-                        flash("Logged in as {}".format(
-                            request.form.get("username")))
-                        return redirect(url_for(
-                            "get_recipes"))
+                session["user"] = request.form.get("username").lower()
+                flash("Logged in as {}".format(
+                    request.form.get("username")))
+                return redirect(url_for(
+                    "get_recipes"))
             else:
                 # invalid password match
                 flash("Incorrect Password")
@@ -119,6 +119,30 @@ def add_recipe():
     return render_template("add-recipe.html", categories=categories, prep_times=prep_times)
 
 
+@app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+    if request.method == "POST":
+        is_urgent = "on" if request.form.get("is_urgent") else "off"
+        submit = {
+            "recipe_name": request.form.get("recipe_name").title(),
+            "prep_time": request.form.get("prep_time"),
+            "category_name": request.form.get("category_name"),
+            "ingredients": request.form.get("ingredients"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
+            "img_url": request.form.get("img_url"),
+            "added_by": session["user"],
+            "added_on": today.strftime("%B %d, %Y")
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        flash("Recipe has been updated")
+        return redirect(url_for("get_recipes"))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    prep_times = mongo.db.prep_times.find()
+    return render_template("edit-recipe.html", recipe=recipe, categories=categories, prep_times=prep_times)
+
+
 @app.route("/delete_recipe/<recipe_id>/<recipe_name>")
 def delete_recipe(recipe_id, recipe_name):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
@@ -128,7 +152,7 @@ def delete_recipe(recipe_id, recipe_name):
 
 @app.route("/show_recipe/<recipe_id>")
 def show_recipe(recipe_id):
-    recipe = mongo.db.recipes.find_one({"_id" : ObjectId(recipe_id)}) 
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("show-recipe.html", recipe=recipe)
 
 

@@ -12,7 +12,7 @@ main {
 
 /* Navbar Styling */
 nav {
-    background-color: rgba(245, 124, 0, 0.75);
+    background-color: rgba(245, 124, 0, 1);
     box-shadow: none;
     height: 100px;
     line-height: 100px;
