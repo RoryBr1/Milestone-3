@@ -10,7 +10,7 @@
                     <label for="query">Search recipes</label>
                 </div>
                 <div class="col s2">
-                    <button type="submit" class="light-blue darken-1 btn text-shadow search-button">
+                    <button type="submit" class="cyan darken-1 btn text-shadow search-button">
                         <i class="fas fa-search center-align center"></i>
                     </button>
                 </div>
@@ -53,16 +53,18 @@
                 <div class="card-image">
                     <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}"><img src="{{ recipe.img_url }}"
                             class="recipe-card-img"></a>
-                    <span class="card-title">
+                    <span class="edit-delete-buttons-container">
                         {% if session.user|lower == "admin1"|lower %}
                         <div class="row">
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn edit-delete-btn hvr-reveal"
+                            <div class="col s12">
+                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn cyan darken-1 edit-delete-btn hvr-reveal"
                                 alt="Edit this recipe">
                                 <i class="fas fa-edit center"></i>
                             </a>
-                            <button data-target="{{ recipe._id }}" class="btn edit-delete-btn hvr-reveal modal-trigger"
+                            <button data-target="{{ recipe._id }}" class="btn red lighten-2 edit-delete-btn hvr-reveal modal-trigger"
                                 alt="Delete this recipe"><i class="fas fa-trash-alt center"></i></button>
                         </div>
+                            </div>
                         {% endif %}
                     </span>
                 </div>

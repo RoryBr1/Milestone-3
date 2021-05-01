@@ -12,15 +12,28 @@
         </div>
         <div class="row">
             <div class="col s12 m6 right-align">
+                <div class="row">
+                </div>
                 <h3>{{ recipe.recipe_name }}</h3>
                 <p>Posted in <em>{{ recipe.category_name }}</em> on <em>{{ recipe.added_on }}</em></p>
                 <p class="s4"><b>Prep time:</b> {{ recipe.prep_time }}</p>
             </div>
             <div class="col s12 m6">
-                <img src="{{ recipe.img_url }}" id="recipe-page-image"></img>
-                <a href="#" class="btn-small right">Facebook</a>
-                <a href="#" class="btn-small right">Facebook</a>
+                <img src="{{ recipe.img_url }}" id="recipe-page-image">
+                <div class="col s11">
+                    <button class="btn-small  hvr-reveal right"><i class="fas fa-share-alt"></i> Share</button>
+                    {% if session.user|lower == "admin1"|lower %}
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                        class="btn-small cyan darken-1 hvr-reveal right" alt="Edit this recipe">
+                        <i class="fas fa-edit center"></i>
+                    </a>
+                    <button data-target="{{ recipe._id }}"
+                        class="btn-small red lighten-2 hvr-reveal modal-trigger right" alt="Delete this recipe"><i
+                            class="fas fa-trash-alt center"></i></button>
+                    {% endif %}
+                </div>
             </div>
+
         </div>
         <div class="div row">
             <div class="s6">
@@ -40,6 +53,30 @@
                     </li>
                     {% endfor %}
                 </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Delete Confirmation Modal -->
+<div id="{{ recipe._id }}" class="modal">
+    <div class="container">
+        <div class="modal-content">
+            <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i>
+                Delete
+                "{{ recipe.recipe_name }}" ?</h5><br>
+            <p class="center">This action cannot be reversed.</p>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col s12">
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id, recipe_name=recipe.recipe_name) }}"
+                        data-target="{{ recipe._id }}" class="btn-small edit-delete-btn red lighten-2 hvr-reveal"><i
+                            class="fas fa-trash-alt"></i> Delete</a>
+                    <a href="#!" class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
+                            class="fas fa-times"></i> Cancel</a>
+                </div>
             </div>
         </div>
     </div>

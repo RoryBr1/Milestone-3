@@ -123,6 +123,7 @@ def add_recipe():
 def edit_recipe(recipe_id):
     if request.method == "POST":
         is_urgent = "on" if request.form.get("is_urgent") else "off"
+        recipe_name = request.form.get("recipe_name").title()
         submit = {
             "recipe_name": request.form.get("recipe_name").title(),
             "prep_time": request.form.get("prep_time"),
@@ -134,7 +135,7 @@ def edit_recipe(recipe_id):
             "added_on": today.strftime("%B %d, %Y")
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
-        flash("Recipe has been updated")
+        flash("'" + recipe_name + "'" + " has been updated")
         return redirect(url_for("get_recipes"))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
