@@ -7,7 +7,7 @@
             <div class="col s2">
                 <a href="{{ url_for('get_recipes')}}" class="btn-flat admin-panel-btn  hvr-reveal"><i
                         class="fas fa-chevron-left grey-text text-lighten-2"></i>
-                    Back</a>
+                    Back to Home</a>
             </div>
         </div>
         <div class="row">
@@ -21,7 +21,12 @@
             <div class="col s12 m6">
                 <img src="{{ recipe.img_url }}" id="recipe-page-image">
                 <div class="col s11">
-                    <button class="btn-small  hvr-reveal right"><i class="fas fa-share-alt"></i> Share</button>
+                    <a href="https://twitter.com/intent/tweet?url={{ page_url }}&text=" target="_blank"
+                        class="btn-small blue lighten-1 hvr-reveal right"><i class="fab fa-twitter"></i>
+                        Tweet</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}" target="_blank"
+                        class="btn-small indigo lighten-1 hvr-reveal right"><i class="fab fa-facebook-f"></i>
+                        Share</a>
                     {% if session.user|lower == "admin1"|lower %}
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
                         class="btn-small cyan darken-1 hvr-reveal right" alt="Edit this recipe">
@@ -33,10 +38,9 @@
                     {% endif %}
                 </div>
             </div>
-
         </div>
-        <div class="div row">
-            <div class="s6">
+        <div class="row">
+            <div class="col s12 m4 grey lighten-3">
                 <ul>
                     {% for item in recipe.ingredients.splitlines() %}
                     <li>
@@ -45,7 +49,7 @@
                     {% endfor %}
                 </ul>
             </div>
-            <div class="s6">
+            <div class="col s12 m8">
                 <ol>
                     {% for item in recipe.recipe_instructions.splitlines() %}
                     <li>
