@@ -15,7 +15,18 @@
                     </button>
                 </div>
             </div>
-        </form>
+                </form>
+            <div class="row">
+                <a class='dropdown-trigger btn' href='#' data-target='category-dropdown'>Filter by category <i class="fas fa-chevron-circle-down"></i></a>
+
+                <!-- Category Dropdown -->
+                <ul id="category-dropdown" class="dropdown-content">
+                    {% for category in categories %}
+                    <li><a href="{{ url_for('category_filter', category=category.category_name) }}">{{ category.category_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+
     </div>
 </div>
 
@@ -57,14 +68,15 @@
                         {% if session.user|lower == "admin1"|lower %}
                         <div class="row">
                             <div class="col s12">
-                            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn cyan darken-1 edit-delete-btn hvr-reveal"
-                                alt="Edit this recipe">
-                                <i class="fas fa-edit center"></i>
-                            </a>
-                            <button data-target="{{ recipe._id }}" class="btn red lighten-2 edit-delete-btn hvr-reveal modal-trigger"
-                                alt="Delete this recipe"><i class="fas fa-trash-alt center"></i></button>
-                        </div>
+                                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                                    class="btn cyan darken-1 edit-delete-btn hvr-reveal" alt="Edit this recipe">
+                                    <i class="fas fa-edit center"></i>
+                                </a>
+                                <button data-target="{{ recipe._id }}"
+                                    class="btn red lighten-2 edit-delete-btn hvr-reveal modal-trigger"
+                                    alt="Delete this recipe"><i class="fas fa-trash-alt center"></i></button>
                             </div>
+                        </div>
                         {% endif %}
                     </span>
                 </div>
@@ -72,7 +84,7 @@
                 <div class="card-action right-align">
                     <div class="row">
                         <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">
-                            <h5 class="left">{{ recipe.recipe_name }}</h5>
+                            <h5 class="left hvr-shadow">{{ recipe.recipe_name }}</h5>
                         </a>
                     </div>
 

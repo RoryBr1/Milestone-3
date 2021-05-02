@@ -2,7 +2,8 @@
 
 body {
     font-family: 'Titillium Web', sans-serif;
-    background-color: lightgray;
+    background-image: url('../images/pizza-background.jpg');
+    background-size:cover;
     background-attachment: fixed;
     display: flex;
     min-height: 100vh;
@@ -21,32 +22,35 @@ nav {
     line-height: 100px;
     padding-left: 10%;
     padding-right: 10%;
-    
+
 }
 
 /* Search Bar Styling */
 .search-panel {
-    background-color: rgba(255,255,255,0.7);
-    padding-left:10px;
-    padding-right:10px;
-    margin-top:10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 10px;
 }
 
 .search-panel input[type=text] {
-    height:40px;
+    height: 40px;
     background-color: white;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
-    padding-left:16px;
-    margin-bottom:0px;
+    padding-left: 16px;
+    margin-bottom: 0px;
 }
 
 .search-button {
-    height:40px;
-    width:95%;
+    height: 40px;
+    width: 95%;
 }
 
 /* Form Styling */
-input, select, label, textarea {
+input,
+select,
+label,
+textarea {
     font-family: 'Titillium Web', sans-serif;
 }
 
@@ -77,6 +81,11 @@ button i {
     padding-right: 3px;
 }
 
+.card-action a h5 {
+    color: #00acc1 !important;
+    letter-spacing: 0.15ch;
+}
+
 a i {
     text-shadow: none;
     color: rgba(255, 255, 255, 0.8) !important;
@@ -91,23 +100,23 @@ a i {
 }
 
 .edit-delete-btn {
-    font-size:0.5rem;
-    width:40px !important;
-    height:40px !important;
+    font-size: 0.5rem;
+    width: 40px !important;
+    height: 40px !important;
     padding: 0px !important;
 }
 
 /* Recipe Card Styling */
 .recipe-card h4 {
-    margin-top:5px;
-    margin-bottom:5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .recipe-card-category {
-    font-size:1.4rem;
-    padding:4px;
-    background: rgba(0,0,0,0.6);
-    box-shadow: 0px 0px 3px rgba(0,0,0,0.4);
+    font-size: 1.4rem;
+    padding: 4px;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.4);
 }
 
 .recipe-card-img {
@@ -126,7 +135,7 @@ a i {
 }
 
 .edit-delete-btn {
-    font-size:0.8rem;
+    font-size: 0.8rem;
 }
 
 .recipe-card h5 {
@@ -135,8 +144,8 @@ a i {
 
 /* Recipe Page Styling */
 #recipe-page-image {
-    width:100%;
-    max-height:300px;
+    width: 100%;
+    max-height: 300px;
     object-fit: contain;
 }
 
@@ -162,7 +171,7 @@ a i {
     z-index: 1000;
     background-color: rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius:4px;
+    border-radius: 4px;
     -moz-animation: fadeOut 0.8s ease-in 1.5s forwards;
     /* Firefox */
     -webkit-animation: fadeOut 0.8s ease-in 1.5s forwards;

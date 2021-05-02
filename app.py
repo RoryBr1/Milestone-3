@@ -18,12 +18,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
-    return render_template("recipes.html", recipes=recipes)
+    categories = list(mongo.db.categories.find())
+    return render_template("recipes.html", recipes=recipes, categories=categories)
 
 
 @app.route("/search", methods=["GET", "POST"])
@@ -32,6 +32,13 @@ def search():
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     flash("Showing results for " + "'" + query + "'")
     return render_template("recipes.html", recipes=recipes)
+
+@app.route("/category_filter/<category>", methods=['GET','POST'])
+def category_filter(category):
+    recipes = list(mongo.db.recipes.find({"category_name": category}))
+    categories = list(mongo.db.categories.find())
+    flash("Showing all recipes in category " + "'" + category + "'")
+    return render_template("recipes.html", recipes=recipes,  categories=categories)
 
 
 @app.route("/admin_login", methods=["GET", "POST"])
@@ -111,7 +118,7 @@ def add_recipe():
         }
         recipe_name = request.form.get("recipe_name").title()
         mongo.db.recipes.insert_one(recipe)
-        flash(recipe_name + " added successfully.")
+        flash("'" + recipe_name + "'" + " added successfully.")
         return redirect(url_for("get_recipes"))
 
     categories = mongo.db.categories.find()
@@ -147,7 +154,7 @@ def edit_recipe(recipe_id):
 @app.route("/delete_recipe/<recipe_id>/<recipe_name>")
 def delete_recipe(recipe_id, recipe_name):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash(recipe_name + " has been deleted")
+    flash("'" + recipe_name + "'"  + " has been deleted")
     return redirect(url_for("get_recipes"))
 
 
