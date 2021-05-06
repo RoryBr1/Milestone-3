@@ -37,15 +37,17 @@
 
         <div class="col s12 m6 center">
             <div class="card">
-                <div class="card-content grey-text darken-4">
-                    <span class="card-title">{{ category.category_name }}</span>
+                <div class="card-content grey lighten-3">
+                    <span class="card-title">
+                        <h5><i class="fas fa-folder grey-text text-lighten-1"></i> {{ category.category_name }} </h5>
+                    </span>
                 </div>
                 <div class="card-action s12">
-                    <button data-target="#"
-                        class="m12 btn-small red lighten-2 hvr-reveal btn modal-trigger indigo lighten-2"
+                    <button data-target="rename.{{ category._id }}"
+                        class="m12 btn-small red lighten-2 hvr-reveal btn modal-trigger cyan accent-4"
                         alt="Rename this category"><i class="fas fa-edit"></i>Rename
                     </button>
-                    <button data-target="{{ category._id }}"
+                    <button data-target="delete.{{ category._id }}"
                         class="btn-small red lighten-2 hvr-reveal btn modal-trigger" alt="Delete this category"><i
                             class="fas fa-trash-alt"></i> Delete </button>
                 </div>
@@ -55,7 +57,7 @@
     </div>
 
     <!-- Delete Confirmation Modal -->
-    <div id="{{ category._id }}" class="modal">
+    <div id="delete.{{ category._id }}" class="modal">
         <div class="container">
             <div class="modal-content">
                 <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i> Delete
@@ -73,6 +75,26 @@
                                 class="fas fa-times"></i> Cancel</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rename Modal -->
+    <div id="rename.{{ category._id }}" class="modal">
+        <div class="container">
+            <div class="modal-content">
+                <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i> Rename
+                    "{{ category.category_name }}"</h5><br>
+                <form method="POST" action="{{ url_for('rename_category', category_id=category._id) }}">
+                    <label for="rename_category">Rename category</label>
+                    <input id="rename_category" name="rename_category" minlength="5" maxlength="24" type="text"
+                        class="validate" value="{{ category.category_name }}" required>
+                    <button type="submit" class="btn-large orange darken-2 text-shadow">
+                        <i class="fas fa-edit"></i> Submit
+                    </button>
+                    <a href="#!" class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
+                            class="fas fa-times"></i> Cancel</a>
+                </form>
             </div>
         </div>
     </div>

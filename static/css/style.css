@@ -27,9 +27,8 @@ nav {
 
 /* Search Bar Styling */
 .search-panel {
-    background-color: rgba(255, 255, 255, 0.7);
-    padding-left: 10px;
-    padding-right: 10px;
+    background-color: white;
+
     margin-top: 10px;
 }
 
@@ -46,12 +45,20 @@ nav {
     width: 95%;
 }
 
+.dropdown-trigger {
+    font-size:0.8rem;
+    width:100%;
+}
 /* Form Styling */
 input,
 select,
 label,
 textarea {
     font-family: 'Titillium Web', sans-serif;
+}
+
+#search-input-label  {
+    padding-left:20px;
 }
 
 /* Button Styling */
@@ -82,7 +89,7 @@ button i {
 }
 
 .card-action a h5 {
-    color: #00acc1 !important;
+    color: #424242 !important;
     letter-spacing: 0.15ch;
 }
 
@@ -169,9 +176,10 @@ a i {
     left: 33%;
     width: 33%;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(230, 81, 0, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
+    box-shadow: 0px 4px 3px rgba(0,0,0,0.2);
+    border-radius: 8px;
     -moz-animation: fadeOut 0.8s ease-in 1.5s forwards;
     /* Firefox */
     -webkit-animation: fadeOut 0.8s ease-in 1.5s forwards;

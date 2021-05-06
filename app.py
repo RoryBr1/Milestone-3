@@ -151,6 +151,16 @@ def edit_recipe(recipe_id):
     return render_template("edit-recipe.html", recipe=recipe, categories=categories, prep_times=prep_times)
 
 
+@app.route("/rename_category/<category_id>", methods=["GET", "POST"])
+def rename_category(category_id):
+    if request.method == "POST":
+        submit = request.form.get("rename_category").title()
+        mongo.db.categories.update({"_id": ObjectId(category_id)}, { "category_name" : submit})
+    
+    flash("Category has been renamed to " + "'" + submit + "'")
+    return redirect(url_for("show_categories"))
+
+
 @app.route("/delete_recipe/<recipe_id>/<recipe_name>")
 def delete_recipe(recipe_id, recipe_name):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
