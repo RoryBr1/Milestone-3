@@ -1,8 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-
 <div class="container">
-    <div class="card-panel grey lighten-4">
+    <div class="card grey lighten-4">
         <div class="search-panel">
             <form action="{{ url_for('search') }}" method="post">
                 <div class="row valign-wrapper center">
@@ -20,8 +19,8 @@
             <div class="col s1">
                 <span>or</span></div>
             <div class="col s12 m3">
-                <a class='dropdown-trigger btn cyan darken-1' href='#' data-target='category-dropdown'>Filter by category <i
-                        class="fas fa-chevron-down right"></i></a>
+                <a class='dropdown-trigger btn cyan darken-1' href='#' data-target='category-dropdown'>Filter by
+                    category <i class="fas fa-chevron-down right"></i></a>
 
                 <!-- Category Dropdown -->
                 <ul id="category-dropdown" class="dropdown-content">
@@ -34,108 +33,113 @@
             </div>
         </div>
     </div>
+</div>
+
+</div>
+<div class="container">
+    <div class="card-panel grey lighten-4">
 
 
-    {% if session.user|lower == "admin1"|lower %}
-    <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <div class="col s12 l4">
-                    <a href="{{ url_for('add_recipe') }}" class="btn orange accent-3 admin-panel-btn hvr-reveal"> <i
-                            class="fas fa-plus-square"></i> Add New
-                        Recipe</a>
-                </div>
-                <div class="col s12 l4">
-                    <a href="{{ url_for('show_categories') }}"
-                        class="btn orange darken-2 admin-panel-btn  hvr-reveal"><i class="fas fa-folder"></i>
-                        Manage Categories</a>
-                </div>
-                <div class="col s12 l4">
-                    <a href="{{ url_for('logout') }}" class="btn admin-panel-btn red lighten-2 hvr-reveal"><i
-                            class="fas fa-sign-out-alt"></i> Logout as
-                        {{ session.user }} </a>
+        {% if session.user|lower == "admin1"|lower %}
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="col s12 l4">
+                        <a href="{{ url_for('add_recipe') }}" class="btn orange accent-3 admin-panel-btn hvr-reveal"> <i
+                                class="fas fa-plus-square"></i> Add New
+                            Recipe</a>
+                    </div>
+                    <div class="col s12 l4">
+                        <a href="{{ url_for('show_categories') }}"
+                            class="btn orange darken-2 admin-panel-btn  hvr-reveal"><i class="fas fa-folder"></i>
+                            Manage Categories</a>
+                    </div>
+                    <div class="col s12 l4">
+                        <a href="{{ url_for('logout') }}" class="btn admin-panel-btn red lighten-2 hvr-reveal"><i
+                                class="fas fa-sign-out-alt"></i> Logout as
+                            {{ session.user }} </a>
+                    </div>
                 </div>
             </div>
+        </div>
+        {% endif %}
+
+        {% if recipes|length > 0 %}
+        <div class="row">
+            {% for recipe in recipes %}
+            <div class="col m12 xl6">
+                <div class="card recipe-card">
+                    <div class="card-image">
+                        <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}"><img src="{{ recipe.img_url }}"
+                                class="recipe-card-img"></a>
+                        <span class="edit-delete-buttons-container">
+                            {% if session.user|lower == "admin1"|lower %}
+                            <div class="row">
+                                <div class="col s12">
+                                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
+                                        class="btn cyan darken-1 edit-delete-btn hvr-reveal" alt="Edit this recipe">
+                                        <i class="fas fa-edit center"></i>
+                                    </a>
+                                    <button data-target="{{ recipe._id }}"
+                                        class="btn red lighten-2 edit-delete-btn hvr-reveal modal-trigger"
+                                        alt="Delete this recipe"><i class="fas fa-trash-alt center"></i></button>
+                                </div>
+                            </div>
+                            {% endif %}
+                        </span>
+                    </div>
+
+                    <div class="card-action right-align">
+                        <div class="row">
+                            <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">
+                                <h5 class="left hvr-shadow">{{ recipe.recipe_name }}</h5>
+                            </a>
+                        </div>
+
+                        <span class="left"><i class="fas fa-stopwatch grey-text"></i> {{ recipe.prep_time }}</span>
+
+                        <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">View Recipe <i
+                                class="fas fa-chevron-right orange-text text-lighten-4"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Confirmation Modal -->
+            <div id="{{ recipe._id }}" class="modal">
+                <div class="container">
+                    <div class="modal-content">
+                        <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i>
+                            Delete
+                            "{{ recipe.recipe_name }}" ?</h5><br>
+                        <p class="center">This action cannot be reversed.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row">
+                            <div class="col s12">
+                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id, recipe_name=recipe.recipe_name) }}"
+                                    data-target="{{ recipe._id }}"
+                                    class="btn-small edit-delete-btn red lighten-2 hvr-reveal"><i
+                                        class="fas fa-trash-alt"></i> Delete</a>
+                                <a href="#!" class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
+                                        class="fas fa-times"></i> Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+    {% else %}
+    <!-- Shown when no results are found matching search query -->
+    <div class="container center valign-wrapper">
+        <div class="row">
+            <h5>No recipes found.</h5>
+            <a href="{{ url_for('get_recipes') }}">Back to homepage.</a>
         </div>
     </div>
     {% endif %}
 
-    {% if recipes|length > 0 %}
-    <div class="row">
-        {% for recipe in recipes %}
-        <div class="col m12 xl6">
-            <div class="card recipe-card">
-                <div class="card-image">
-                    <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}"><img src="{{ recipe.img_url }}"
-                            class="recipe-card-img"></a>
-                    <span class="edit-delete-buttons-container">
-                        {% if session.user|lower == "admin1"|lower %}
-                        <div class="row">
-                            <div class="col s12">
-                                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
-                                    class="btn cyan darken-1 edit-delete-btn hvr-reveal" alt="Edit this recipe">
-                                    <i class="fas fa-edit center"></i>
-                                </a>
-                                <button data-target="{{ recipe._id }}"
-                                    class="btn red lighten-2 edit-delete-btn hvr-reveal modal-trigger"
-                                    alt="Delete this recipe"><i class="fas fa-trash-alt center"></i></button>
-                            </div>
-                        </div>
-                        {% endif %}
-                    </span>
-                </div>
-
-                <div class="card-action right-align">
-                    <div class="row">
-                        <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">
-                            <h5 class="left hvr-shadow">{{ recipe.recipe_name }}</h5>
-                        </a>
-                    </div>
-
-                    <span class="left"><i class="fas fa-stopwatch grey-text"></i> {{ recipe.prep_time }}</span>
-
-                    <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}">View Recipe <i
-                            class="fas fa-chevron-right orange-text text-lighten-4"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Delete Confirmation Modal -->
-        <div id="{{ recipe._id }}" class="modal">
-            <div class="container">
-                <div class="modal-content">
-                    <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i>
-                        Delete
-                        "{{ recipe.recipe_name }}" ?</h5><br>
-                    <p class="center">This action cannot be reversed.</p>
-                </div>
-                <div class="modal-footer">
-                    <div class="row">
-                        <div class="col s12">
-                            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id, recipe_name=recipe.recipe_name) }}"
-                                data-target="{{ recipe._id }}"
-                                class="btn-small edit-delete-btn red lighten-2 hvr-reveal"><i
-                                    class="fas fa-trash-alt"></i> Delete</a>
-                            <a href="#!" class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
-                                    class="fas fa-times"></i> Cancel</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-
-    </div>
-</div>
-
-{% else %}
-<!-- Shown when no results are found matching search query -->
-<div class="container center valign-wrapper">
-    <div class="row">
-        <h5>No recipes found.</h5>
-        <a href="{{ url_for('get_recipes') }}">Back to homepage.</a>
-    </div>
-</div>
-{% endif %}
-
-{% endblock %}
+    {% endblock %}
