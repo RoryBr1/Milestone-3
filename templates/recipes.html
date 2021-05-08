@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
-    <div class="card grey lighten-4">
+    <div class="card grey lighten-2">
         <div class="search-panel">
             <form action="{{ url_for('search') }}" method="post">
                 <div class="row valign-wrapper center">
@@ -9,17 +9,18 @@
                         <input type="text" name="query" id="query" minlength="3" class="search-input validate" required>
                         <label for="query" id="search-input-label">Search recipes</label>
                     </div>
-                    <div class="col s12 m2">
-                        <button type="submit" class="cyan accent-4 btn text-shadow search-button">
+                    <div class="col s12 m1">
+                        <button type="submit" class="cyan accent-4 btn text-shadow search-button hvr-reveal">
                             <i class="fas fa-search center-align center"></i>
                         </button>
+                        
                     </div>
-
-            </form>
-            <div class="col s1">
+            
+            <div class="col s1 hide-on-med-and-down">
                 <span>or</span></div>
-            <div class="col s12 m3">
-                <a class='dropdown-trigger btn cyan darken-1' href='#' data-target='category-dropdown'>Filter by
+            <div class="col s12 m4">
+                <a class='dropdown-trigger btn cyan darken-1 hvr-reveal' href='#' data-target='category-dropdown'>Filter
+                    by
                     category <i class="fas fa-chevron-down right"></i></a>
 
                 <!-- Category Dropdown -->

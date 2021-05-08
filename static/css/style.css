@@ -3,7 +3,7 @@
 body {
     font-family: 'Titillium Web', sans-serif;
     background-image: url('../images/pizza-background.jpg');
-    background-size:cover;
+    background-size: cover;
     background-attachment: fixed;
     display: flex;
     min-height: 100vh;
@@ -25,6 +25,18 @@ nav {
 
 }
 
+#logo {
+    max-height: 100px;
+}
+
+.fa-bars {
+    font-size:3rem;
+}
+
+.fa-bars:hover {
+    text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.3);
+}
+
 /* Search Bar Styling */
 .search-panel {
     margin-top: 10px;
@@ -44,9 +56,10 @@ nav {
 }
 
 .dropdown-trigger {
-    font-size:0.8rem;
-    width:100%;
+    font-size: 0.8rem;
+    width: 100%;
 }
+
 /* Form Styling */
 input,
 select,
@@ -55,8 +68,8 @@ textarea {
     font-family: 'Titillium Web', sans-serif;
 }
 
-#search-input-label  {
-    padding-left:20px;
+#search-input-label {
+    padding-left: 20px;
 }
 
 /* Button Styling */
@@ -176,7 +189,7 @@ a i {
     z-index: 1000;
     background-color: rgba(230, 81, 0, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0px 4px 3px rgba(0,0,0,0.2);
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     -moz-animation: fadeOut 0.8s ease-in 1.5s forwards;
     /* Firefox */
@@ -199,6 +212,15 @@ a i {
         margin: 1%;
         width: 99% !important;
         height: fit-content;
+    }
+
+    nav {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    .sidenav i {
+        color: black !important;
     }
 }
 
