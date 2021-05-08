@@ -171,7 +171,6 @@ def delete_recipe(recipe_id, recipe_name):
 @app.route("/show_recipe/<recipe_id>")
 def show_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    page_url = "http://junk-food-vegan.heroku.com/show_recipe/<recipe_id>"
     return render_template("show-recipe.html", recipe=recipe)
 
 

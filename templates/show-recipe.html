@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
 <div class="container">
     <div class="card-panel">
         <div class="row">
@@ -21,10 +20,10 @@
             <div class="col s12 m6">
                 <img src="{{ recipe.img_url }}" id="recipe-page-image">
                 <div class="col s11">
-                    <a href="https://twitter.com/intent/tweet?url={{ page_url }}&text=" target="_blank"
+                    <a onclick="window.open('https://twitter.com/intent/tweet?text=' + 'Check out this recipe from JunkfoodVegan: ' + encodeURIComponent(location.href))" target="_blank"
                         class="btn-small blue lighten-1 hvr-reveal right"><i class="fab fa-twitter"></i>
                         Tweet</a>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page_url }}" target="_blank"
+                    <a onclick="window.open('http://www.facebook.com/share.php?u=' + encodeURIComponent(location.href))" target="_blank"
                         class="btn-small indigo lighten-1 hvr-reveal right"><i class="fab fa-facebook-f"></i>
                         Share</a>
                     {% if session.user|lower == "admin1"|lower %}

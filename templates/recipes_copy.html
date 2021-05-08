@@ -2,25 +2,27 @@
 {% block content %}
 <div class="container">
     <div class="card grey lighten-2">
-        <div class="row">
-            <div class="search-panel">
-                <form action="{{ url_for('search') }}" method="post">
-                <div class="col s12 m8 valign-wrapper">
-                    <div class="input-field col s9">
+        <div class="search-panel">
+            <form action="{{ url_for('search') }}" method="post">
+                <div class="row valign-wrapper center">
+                    <div class="input-field col s12 m8">
                         <input type="text" name="query" id="query" minlength="3" class="search-input validate" required>
                         <label for="query" id="search-input-label">Search recipes</label>
                     </div>
-                    <div class="col s3">
+                    <div class="col s12 m1">
                         <button type="submit" class="cyan accent-4 btn text-shadow search-button hvr-reveal">
                             <i class="fas fa-search center-align center"></i>
                         </button>
+                        
                     </div>
-                </div>
-                </form>
-            </div>
-            <div class="col s12 m4 valign-wrapper">
-                <!-- Dropdown Button -->
-                <a class="dropdown-trigger btn cyan accent-4 hvr-reveal" href="#" data-target="category-dropdown">Category<i class="fas fa-chevron-down right"></i></a>
+            
+            <div class="col s1 hide-on-med-and-down">
+                <span>or</span></div>
+            <div class="col s12 m4">
+                <a class='dropdown-trigger btn cyan darken-1 hvr-reveal' href='#' data-target='category-dropdown'>Filter
+                    by
+                    category <i class="fas fa-chevron-down right"></i></a>
+
                 <!-- Category Dropdown -->
                 <ul id="category-dropdown" class="dropdown-content">
                     {% for category in categories %}
@@ -34,7 +36,7 @@
     </div>
 </div>
 
-
+</div>
 <div class="container">
     <div class="card-panel grey lighten-4">
 

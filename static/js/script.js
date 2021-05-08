@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    $('.sidenav').sidenav({edge: 'right'});
+    $('.sidenav').sidenav({
+        edge: 'right'
+    });
     $(".tooltipped").tooltip();
     $("select").formSelect();
     $('.modal').modal();
