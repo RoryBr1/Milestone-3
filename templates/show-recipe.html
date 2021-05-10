@@ -20,11 +20,12 @@
             <div class="col s12 m6">
                 <img src="{{ recipe.img_url }}" id="recipe-page-image">
                 <div class="col s11">
-                    <a onclick="window.open('https://twitter.com/intent/tweet?text=' + 'Check out this recipe from JunkfoodVegan: ' + encodeURIComponent(location.href))" target="_blank"
-                        class="btn-small blue lighten-1 hvr-reveal right"><i class="fab fa-twitter"></i>
+                    <a onclick="window.open('https://twitter.com/intent/tweet?text=' + 'Check out this recipe from JunkfoodVegan: ' + encodeURIComponent(location.href))"
+                        target="_blank" class="btn-small blue lighten-1 hvr-reveal right"><i class="fab fa-twitter"></i>
                         Tweet</a>
-                    <a onclick="window.open('http://www.facebook.com/share.php?u=' + encodeURIComponent(location.href))" target="_blank"
-                        class="btn-small indigo lighten-1 hvr-reveal right"><i class="fab fa-facebook-f"></i>
+                    <a onclick="window.open('http://www.facebook.com/share.php?u=' + encodeURIComponent(location.href))"
+                        target="_blank" class="btn-small indigo lighten-1 hvr-reveal right"><i
+                            class="fab fa-facebook-f"></i>
                         Share</a>
                     {% if session.user|lower == "admin1"|lower %}
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
@@ -72,13 +73,12 @@
             <p class="center">This action cannot be reversed.</p>
         </div>
         <div class="modal-footer">
-            <div class="row">
-                <div class="col s12">
+            <div class="row center">
+                <div class="">
                     <a href="{{ url_for('delete_recipe', recipe_id=recipe._id, recipe_name=recipe.recipe_name) }}"
-                        data-target="{{ recipe._id }}" class="btn-small edit-delete-btn red lighten-2 hvr-reveal"><i
+                        data-target="{{ recipe._id }}" class="btn-small red lighten-2 hvr-reveal"><i
                             class="fas fa-trash-alt"></i> Delete</a>
-                    <a href="#!" class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
-                            class="fas fa-times"></i> Cancel</a>
+                    <a href="#!" class="btn-small grey hvr-reveal modal-close"><i class="fas fa-times"></i> Cancel</a>
                 </div>
             </div>
         </div>

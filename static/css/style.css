@@ -63,6 +63,17 @@ nav {
     margin-top: 16px;
 }
 
+/* Splash text */
+.index-splash {
+    padding-top: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 260px;
+    background-image: url('../images/burger-splash.png');
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
 /* Form Styling */
 input,
 select,
@@ -222,12 +233,8 @@ a i {
         padding-right: 0%;
     }
 
-    .sidenav i {
-        color: black !important;
-    }
-
     .dropdown-trigger {
-        margin-bottom:10px;
+        margin-bottom: 10px;
     }
 }
 
