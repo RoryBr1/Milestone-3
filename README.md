@@ -1,6 +1,6 @@
-![CI logo](/static/images/readme-assets/logo-readme.png)
+![Logo](/static/readme-assets/logo-readme.png)
 # Data-Centric Project | Recipe Website
-![CI logo](/static/images/readme-assets/responsive-screens.png)
+![AmIResponsive Screenshot](/static/readme-assets/responsive-screens.png)
 
 # Table of Contents
 <hr>
