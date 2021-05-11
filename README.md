@@ -34,3 +34,14 @@
 7. [Testing](#testing)
 8. [Credits](#credits)
     * [Acknowledgements](#acknowledgements)
+
+<hr>
+<hr>
+
+## Overview
+
+JunkFood Vegan is a data-centric web project build as part of the [CodeInstitute](http://www.codeinstitute.net/) Full-Stack Software Development Course. 
+It is a dynamic recipe website built with two users in mind; the end user, and the site administrator.
+The end user can browse, view and share recipes. The site administrator - once authenticated - can add, edit, delete and categorize recipes using an intuitive web interface.
+
+The website is fully responsive, utilizing simple and colourful design language and an intuitive information structure.
