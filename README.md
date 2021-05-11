@@ -1,2 +1,2 @@
-![CI logo](/static/images/readme-logo.png)
+![CI logo](/static/images/logo-readme.png)
 
