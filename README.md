@@ -82,4 +82,4 @@ The website is fully responsive, utilizing simple and colourful design language 
 ## Design
 ![AmIResponsive Screenshot](/static/readme-assets/responsive-screens.png)
 
-[Click here to view wireframes.](/static/readme-assets/wireframes.html) <br>
+[Click here to view wireframes.](/static/readme-assets/wireframes.md) <br>
