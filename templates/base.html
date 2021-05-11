@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +24,8 @@
 
 <body>
     <section>
-        <!--flash messages-->
+        <!--flash messages
+            if there are messages, create a div displaying them. -->
         {% with messages = get_flashed_messages() %}
         {% if messages %}
         {% for message in messages %}
@@ -38,11 +38,15 @@
     </section>
 
     <header>
+        <!-- Navbar -->
         <nav>
             <div class="nav-wrapper">
+                <!-- Logo -->
                 <a href="{{ url_for('get_recipes') }}" class="brand-logo"><img id="logo"
                         src="/static/images/logo.png"></a>
+                <!-- Mobile nav trigger (only visible on small device sizes) -->
                 <a href="#" data-target="mobile-nav" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                <!-- Social media links -->
                 <ul class="right hide-on-med-and-down">
                     <li><a href="http://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="http://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -51,6 +55,7 @@
             </div>
         </nav>
 
+        <!-- Sidebar (displayed when mobile nav trigger clicked) -->
         <ul class="sidenav" id="mobile-nav">
             <li><a href="http://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f grey-text"></i> Facebook</a></li>
             <li><a href="http://www.twitter.com/" target="_blank"><i class="fab fa-twitter grey-text"></i> Twitter</a></li>
@@ -58,20 +63,19 @@
         </ul>
     </header>
 
+    <!-- Main content. Insert block named "content" -->
     <main>
-
         {% block content %}
         {% endblock %}
-
     </main>
 
+    <!-- Page footer -->
     <footer class="page-footer">
         <div class="container ">
             <div class="row ">
                 <div class="col l6 s12">
                     <h5 class="white-text">&copy; JunkFood Vegan</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-                        content.</p>
+                    <p class="grey-text text-lighten-4">All rights reserved</p>
                 </div>
                 <div class="col l4 offset-l2 s12 align-right">
                     <ul>
@@ -94,10 +98,7 @@
                 </div>
             </div>
         </div>
-
     </footer>
-
-
 </body>
 
 <!-- jQuery -->

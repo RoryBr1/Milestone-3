@@ -73,11 +73,11 @@
                     <!-- Delete and Cancel buttons -->
                     <div class="col s12">
                         <a href="{{ url_for('delete_category', category_id=category._id, category_name=category.category_name) }}"
-                            data-target="{{ category._id }}"
-                            class="btn-small red lighten-2 hvr-reveal"><i class="fas fa-trash-alt"></i>
+                            data-target="{{ category._id }}" class="btn-small red lighten-2 hvr-reveal"><i
+                                class="fas fa-trash-alt"></i>
                             Delete</a>
-                        <a href="#!" class="btn-small grey hvr-reveal modal-close"><i
-                                class="fas fa-times"></i> Cancel</a>
+                        <a href="#!" class="btn-small grey hvr-reveal modal-close"><i class="fas fa-times"></i>
+                            Cancel</a>
                     </div>
                 </div>
             </div>
@@ -96,13 +96,15 @@
                     <!-- Text input (retrieves existing category name as initial value) -->
                     <input id="rename_category" name="rename_category" minlength="5" maxlength="24" type="text"
                         class="validate" value="{{ category.category_name }}" required>
-                    <!-- Submit button -->
-                    <button type="submit" class="btn-large orange darken-2 text-shadow">
-                        <i class="fas fa-edit"></i> Submit
-                    </button>
-                    <!-- Cancel button -->
-                    <a href="#!" class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
-                            class="fas fa-times"></i> Cancel</a>
+                    <div class="row center">
+                        <!-- Submit button -->
+                        <button type="submit" class="btn-small hvr-reveal cyan">
+                            <i class="fas fa-edit"></i> Submit
+                        </button>
+                        <!-- Cancel button -->
+                        <a href="#!" class="btn-small grey hvr-reveal modal-close"><i
+                                class="fas fa-times"></i> Cancel</a>
+                    </div>
                 </form>
             </div>
         </div>
