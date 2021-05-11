@@ -72,7 +72,7 @@ The website is fully responsive, utilizing simple and colourful design language 
 5. As an _end-user_, I want to share a good recipe I found on the site with my friends on social media.
    
 ### How does the website function to meet the needs of the user, as described in the user stories?
-1. The _Add New Recipe_, _Edit_ and _Delete functions enable the administrator to fulfill these Create, Update and Delete functions.
+1. The _Add New Recipe_, _Edit_ and _Delete_ functions enable the administrator to fulfill these Create, Update and Delete functions.
 2. The _Manage Categories_ page allows the administrator to add, delete and rename recipe categories.
 3. The site requires administrator _authentication_ to reveal the administrator features. This is done on the _"Admin Login"_ page.
 4. The homepage displays all recipes on the site. The _search_ feature enables the user to view recipes matching their search query. The _category select_ function allows the user to view recipes belonging to a selected category. 
@@ -83,3 +83,13 @@ The website is fully responsive, utilizing simple and colourful design language 
 ![AmIResponsive Screenshot](/static/readme-assets/responsive-screens.png)
 
 [Click here to view wireframes.](/static/readme-assets/wireframes.md) <br>
+
+* ## Concept and Font Choice
+The site is designed to appear clean, professional, and uncomplicated while also appearing vibrant and welcoming.
+The <a href="https://www.dafont.com/lemon-milk.font" target="_blank">Lemon Milk</a> font was used in the design of the logo, and the <a href="https://fonts.google.com/specimen/Titillium+Web" target="_blank">Titillum Web</a> font 
+is used throughout the site in headers, body text and footer. 
+
+The recipe site's personality is fun vegan food. Playful colours were selected to be used in the site layout. 
+All colours on the site are either directly from the <a href="https://materializecss.com/color.html" target="_blank">MaterializeCSS</a> Color page, or are RGBA variants of those colours.
+Main colours used are: cyan darken-1, cyan accent-4, orange accent-3, orange darken-2 and  red lighten-2.
+
