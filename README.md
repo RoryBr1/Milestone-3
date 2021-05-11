@@ -1,6 +1,5 @@
 ![Logo](/static/readme-assets/logo-readme.png)
 # Data-Centric Project | Recipe Website
-![AmIResponsive Screenshot](/static/readme-assets/responsive-screens.png)
 
 # Table of Contents
 <hr>
@@ -80,3 +79,7 @@ The website is fully responsive, utilizing simple and colourful design language 
     A preview of the recipe is shown; when clicked, the user is directed to the full recipe page.
 5. When a recipe has been clicked, _"Facebook Share"_ and _"Tweet"_ buttons are shown below the recipe image. The user can click either to share the URL of the recipe on the chosen social media site.
 
+## Design
+![AmIResponsive Screenshot](/static/readme-assets/responsive-screens.png)
+
+[Click here to view wireframes.](/static/readme-assets/wireframes.html) <br>
