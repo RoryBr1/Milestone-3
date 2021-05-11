@@ -51,6 +51,7 @@ Each recipe is assigned to a category; users can choose to view recipes by categ
 The website is fully responsive, utilizing simple and colourful design language and an intuitive information structure.
 
 <hr>
+<hr>
 
 # UX
 
@@ -61,6 +62,8 @@ The website is fully responsive, utilizing simple and colourful design language 
 * Allow the site administrator to add, edit and delete categories.
 * Allow the end user to search recipes by search term, and view recipes based on category.
 * Provide links to social media pages run by the site administrator.
+
+<hr> 
 
 ## User Stories
 1. As a _site administrator_, I want to upload recipes to the site for the _end-user_ to view. I want to be able to edit and delete these recipes if needed.
