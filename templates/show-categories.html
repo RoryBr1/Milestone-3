@@ -3,22 +3,26 @@
 <div class="container">
     <div class="card-panel">
         <div class="row">
+            <!-- Back to Home link -->
             <div class="col s2">
                 <a href="{{ url_for('get_recipes')}}" class="btn-flat admin-panel-btn  hvr-reveal"><i
                         class="fas fa-chevron-left grey-text text-lighten-2"></i>
                     Back to Home</a>
             </div>
+            <!-- Page heading -->
             <div class="col s8 center">
                 <h5 class="center-align"><i class="fas fa-key grey-text text-lighten-1"></i> Manage Categories</h5>
-
             </div>
         </div>
+        <!-- Add new category form -->
         <form method="POST" action="{{ url_for('add_category') }}">
+            <!-- Text input -->
             <div class="row valign-wrapper">
                 <div class="col s10 white"><label for="category_name">Add New Category</label>
                     <input id="category_name" name="category_name" minlength="5" maxlength="20" type="text"
                         class="validate" placeholder="Category Name" required>
                 </div>
+                <!-- Submit button -->
                 <div class="col s2 white">
                     <button data-target="#" class="btn-small red lighten-2 hvr-reveal admin-panel-btn orange darken-2"
                         alt="Rename this category"><i class="fas fa-plus-square"></i> Add
@@ -29,19 +33,20 @@
     </div>
 </div>
 
-
+<!-- List of categories -->
 <div class="row">
+    <!-- For each categories, create a card with its name, Rename and Delete buttons -->
     {% for category in categories %}
-
     <div class="container">
-
         <div class="col s12 m6 center">
             <div class="card">
                 <div class="card-content grey lighten-3">
+                    <!-- Category name -->
                     <span class="card-title">
                         <h5><i class="fas fa-folder grey-text text-lighten-1"></i> {{ category.category_name }} </h5>
                     </span>
                 </div>
+                <!-- Rename and Delete buttons -->
                 <div class="card-action s12">
                     <button data-target="rename.{{ category._id }}"
                         class="m12 btn-small red lighten-2 hvr-reveal btn modal-trigger cyan accent-4"
@@ -51,7 +56,6 @@
                         class="btn-small red lighten-2 hvr-reveal btn modal-trigger" alt="Delete this category"><i
                             class="fas fa-trash-alt"></i> Delete </button>
                 </div>
-
             </div>
         </div>
     </div>
@@ -66,6 +70,7 @@
             </div>
             <div class="modal-footer">
                 <div class="row center">
+                    <!-- Delete and Cancel buttons -->
                     <div class="col s12">
                         <a href="{{ url_for('delete_category', category_id=category._id, category_name=category.category_name) }}"
                             data-target="{{ category._id }}"
@@ -83,22 +88,25 @@
     <div id="rename.{{ category._id }}" class="modal">
         <div class="container">
             <div class="modal-content">
+                <!-- Modal heading message -->
                 <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i> Rename
                     "{{ category.category_name }}"</h5><br>
                 <form method="POST" action="{{ url_for('rename_category', category_id=category._id) }}">
                     <label for="rename_category">Rename category</label>
+                    <!-- Text input (retrieves existing category name as initial value) -->
                     <input id="rename_category" name="rename_category" minlength="5" maxlength="24" type="text"
                         class="validate" value="{{ category.category_name }}" required>
+                    <!-- Submit button -->
                     <button type="submit" class="btn-large orange darken-2 text-shadow">
                         <i class="fas fa-edit"></i> Submit
                     </button>
+                    <!-- Cancel button -->
                     <a href="#!" class="btn-small edit-delete-btn grey hvr-reveal modal-close"><i
                             class="fas fa-times"></i> Cancel</a>
                 </form>
             </div>
         </div>
     </div>
-
     {% endfor %}
 </div>
 {% endblock %}
