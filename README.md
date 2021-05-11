@@ -89,7 +89,24 @@ The site is designed to appear clean, professional, and uncomplicated while also
 The <a href="https://www.dafont.com/lemon-milk.font" target="_blank">Lemon Milk</a> font was used in the design of the logo, and the <a href="https://fonts.google.com/specimen/Titillium+Web" target="_blank">Titillum Web</a> font 
 is used throughout the site in headers, body text and footer. 
 
+* ## Colours
 The recipe site's personality is fun vegan food. Playful colours were selected to be used in the site layout. 
 All colours on the site are either directly from the <a href="https://materializecss.com/color.html" target="_blank">MaterializeCSS</a> Color page, or are RGBA variants of those colours.
 Main colours used are: cyan darken-1, cyan accent-4, orange accent-3, orange darken-2 and  red lighten-2.
 
+![Image scheme](/static/readme-assets/colours.png)
+
+_Some examples of the colours as used throughout the site_
+
+[Back to Top](#table-of-content)
+
+<hr>
+<hr>
+
+# Existing Features
+The site's structure consists of
+- A *homepage* which displays all recipes, as well as search and sort-by-category functionality. When logged in as admin, relevant control panel links are also displayed.
+- An *Admin Login* page which allows the user to authenticate themselves using a username and password, as well as *Logout* buttons.
+- An individual *page for each recipe* which is loaded when a recipe link is clicked on the homepage.
+- *Add New Recipe* function; used to add a new recipe to the database.
+- *Manage Categories* function; used to manage the recipe categories which are used by the end-user to sort recipes.
