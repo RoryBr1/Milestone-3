@@ -32,7 +32,7 @@
 <hr>
 
 ## HTML
-![HTML Validation](html-validator.png)
+![HTML Validation](html-validation.png)
 
 * On deployed site, right-click and select "View Page Source". This is the final, rendered HTML. This HTML for each page was put through the HTML validator. Each page's HTML passed with only the above warning, which can be ignored (the decision not to add a section heading is intentional).
 
