@@ -34,9 +34,6 @@
                     <select value="{{ recipe.prep_time }}" id="prep_time" name="prep_time" class="validate" required>
                         <option value="" disabled selected>Choose option..</option>
                         {% for prep_time in prep_times %}
-                        {% if recipe.prep_time == recipe.prep_time %}
-                        <option value="{{ recipe.prep_time }}" selected>{{ recipe.prep_time }}</option>
-                        {% else %}
                         <option value="{{ recipe.prep_time }}">{{ recipe.prep_time }}</option>
                         {% endif %}
                         {% endfor %}
