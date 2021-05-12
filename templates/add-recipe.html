@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-
 <div class="container">
     <div class="card-panel grey lighten-5">
         <!-- Header-->
@@ -62,8 +61,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pepper-hot prefix orange-text text-darken-2"></i>
                     <textarea id="ingredients" name="ingredients" placeholder="Type each ingredient on a new line"
-                        minlength="25" maxlength="700" type="text" class="materialize-textarea validate"
-                        required></textarea>
+                        minlength="25" maxlength="700" class="materialize-textarea validate" required></textarea>
                     <label for="ingredients">Ingredients</label>
                     <span class="helper-text" data-error="Must be between 25 and 700 characters" data-success=""></span>
                 </div>
@@ -74,7 +72,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-clipboard-list prefix orange-text text-darken-2"></i>
                     <textarea id="recipe_instructions" name="recipe_instructions"
-                        placeholder="Type each step on a new line" minlength="25" maxlength="2000" type="text"
+                        placeholder="Type each step on a new line" minlength="25" maxlength="2000"
                         class="materialize-textarea validate" required></textarea>
                     <label for="recipe_instructions">Recipe Instructions</label>
                     <span class="helper-text" data-error="Must be between 25 and 2000 characters"
@@ -97,16 +95,14 @@
                 </div>
             </div>
 
-            <div class="row center">  
+            <div class="row center">
                 <button type="submit" class="btn-large orange darken-2 text-shadow">
                     <i class="fas fa-plus-square "></i> Add Recipe
                 </button>
             </div>
+        </form>
     </div>
-    </form>
 </div>
-</div>
-
 <!-- Image URL information modal -->
 <div id="img-url-info" class="modal">
     <div class="modal-content center">
