@@ -201,7 +201,48 @@ The website is built using the [Flask Web Framework](https://flask.palletsprojec
 
 4. Create the database in MongoDB.
     - Signup/login to MongoDB
-    - Create a cluster
+    - Create a cluster with a database named "junkfoodvegan
     - Within the cluster, create the following collections: _categories, recipes, prep_times, users._
 
 5. Create the environment variables
+    - Create a file called _.env.py_ with the following text:
+        import os
+        ```
+        os.environ.setdefault("IP", "0.0.0.0")
+        os.environ.setdefault("PORT", "5000")
+        os.environ.setdefault("SECRET_KEY", "insert-here")
+        os.environ.setdefault("MONGO_URI", "insert-here")
+        os.environ.setdefault("MONGO_DBNAME", "junkfoodvegan")
+        ```
+        Replace the "insert-here" text of the SECRET_KEY with any key of your choosing. [This site](https://randomkeygen.com/) will generate a random key for you.
+        
+        Replace the "insert-here" text of the MONGO_URI with the URI found on “Overview” tab in the menu bar of your MongoDB cluster. 
+        Click "Connect" on the right, and select "Connect your application". Within the URI, replace "myFirstDatabase" with "junkfoodvegan", and replace "<password>" with your chosen password.
+
+6. Create a file named _.gitignore_ and within it, type ``` env.py ``` on a single line. This ensures that the sensitive information within _env.py_ is not uploaded to GitHub where it is public.
+
+7. Run the app by typing ``` python3 app.py ``` into the terminal.
+
+## Heroku
+
+1. In the GitPod terminal, type ``` pip3 freeze -- local > requirements.txt `` . 
+2. In the terminal, type ``` python3 app.py > Procfile ``` . This will create a _Procfile_, which tells Heroku which file to run when the site is accessed.
+3. In the _Deploy_ tab on Heroku, click "Connect to GitHub" and select the relevant repository. Click "Connect".
+4. Go to the _Settings_ page in Heroku and click on "Config Vars". Click on "Reveal Config Vars".
+    - Enter the _IP, SECRET_KEY, MONGO_URI,_ and _MONGO_DBNAME_ as contained in your _env.py_ file.
+5. Go to the _Deploy_ tab in Heroku, scroll down and click "Enable Automatic Deploys". Click "Deploy Branch".
+
+Once the app is deployed, click "Open App" in Heroku on the project page. The project should be successfully deployed and will update automatically when new GitHub commits are made.
+
+# Testing
+[Click here](/static/readme-assets/testing.md) to view the Testing.md file.
+
+# Credits
+
+- Recipe images, and the background image of the site, are from [Pexels](https://www.pexels.com/license/) and [PixaBay](https://pixabay.com/service/license/) and are used in accordance with their licensing.
+- The authentication system was built, with permission, using code by CodeInstitute's Tim Nelson. The relevant GitHub repository can be found [here](https://github.com/Code-Institute-Solutions/TaskManagerAuth/tree/main/02-UserAuthenticationAndAuthorization/03-register_functionality)
+
+## Acknowledgements
+
+* Special thanks to [Code Institute](https://codeinstitute.net/) Tutor Support who helped me troubleshoot at multiple points in the development of the project.
+* Special thanks to my [Code Institute](https://codeinstitute.net/) mentor, Arnold Kyeza, who gave helpful guidance and constructive feedback at multiple points throughout the project. 
