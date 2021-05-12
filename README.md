@@ -11,27 +11,19 @@
     * [Design](#design)
     * [Concept & Font Choice](#concept-and-font-choice)
     * [Colours](#colours)
-3. [Existing Features](#Existing-Features)
-    * [Site Navigation](#site-navigation)
-    * [Social Media Links](#social-media-links)
-    * [Site Authentication](#site-authentication)
-    * [Homepage, Search, Sort-by-Category](#homepage/search/sort)
-    * [Add Recipe](#add-recipe)
-    * [Manage Categories](#manage-categories)
-    * [Show Recipe](#show-recipe)
-    * [Edit Recipe](#edit-recipe)
-4. [Developer Notes](#developer-notes)
+3. [Features](#existing-features)
+    * [Existing Features](#existing-features)
     * [Future Features](#future-features)
-5. [Technologies Used](#technologies-used)
-    * [Flask Technologies](#flask-technologies)
+4. [Technologies Used](#technologies-used)
+    * [Flask-MongoDB](#flask-mongodb)
     * [Code](#code)
     * [Editors](#editors)
     * [Additional Tools](#additional-tools)
-6. [Deployment](#deployment)
+5. [Deployment](#deployment)
     * [Heroku](#heroku)
-    * [Local Deployment](#local-deployment)
-7. [Testing](#testing)
-8. [Credits](#credits)
+    * [GitPod Deployment](#gitpod-deployment)
+6. [Testing](#testing)
+7. [Credits](#credits)
     * [Acknowledgements](#acknowledgements)
 
 <hr>
@@ -82,7 +74,7 @@ The website is fully responsive, utilizing simple and colourful design language 
 ## Design
 ![AmIResponsive Screenshot](/static/readme-assets/responsive-screens.png)
 
-[Click here to view wireframes.](/static/readme-assets/wireframes.md) <br>
+* [Click here to view wireframes.](/static/readme-assets/wireframes.md) <br>
 
 * ## Concept and Font Choice
 The site is designed to appear clean, professional, and uncomplicated while also appearing vibrant and welcoming.
@@ -106,7 +98,35 @@ _Some examples of the colours as used throughout the site_
 # Existing Features
 The site's structure consists of
 - A *homepage* which displays all recipes, as well as search and sort-by-category functionality. When logged in as admin, relevant control panel links are also displayed.
+    This uses the *get_recipes* python function.
 - An *Admin Login* page which allows the user to authenticate themselves using a username and password, as well as *Logout* buttons.
+    These utilize the *admin_login* and *logout* python functions.
+
+    ![Admin Login](/static/readme-assets/admin.png)
+    
+    _The admin-login page can be accessed by clicking the link at the bottom of each page._
 - An individual *page for each recipe* which is loaded when a recipe link is clicked on the homepage.
-- *Add New Recipe* function; used to add a new recipe to the database.
+    This utilizes the *show_recipe* python function.
+- *Add New Recipe*; used to add a new recipe to the database.
+    This utilizes the *add_recipe* python function.
+- *Delete Recipe* allows the admin to delete the given recipe. This utilizes the *delete_recipe* python function.
+- *Edit Recipe* allows the admin to edit the selected recipe. This utilizes the *edit_recipe* python function.
 - *Manage Categories* function; used to manage the recipe categories which are used by the end-user to sort recipes.
+    This utilizes the *add_category*, *delete_category* and *rename_category* python functions.
+
+## Future Features
+- Currently, when a category is deleted in the _Manage Categories_ section of the site, the recipes within that category are not deleted and have to be deleted manually if desired.
+In future, a feature could be added giving the option of deleting all recipes within the category. 
+- At present, there is no way for users to save recipes that they like aside from bookmarking them in their browser. A simple login system could be implemented which allows users 
+to create an account and save recipes that they like to that account.
+
+<hr>
+<hr>
+
+# Technologies Used
+
+## Flask MongoDB
+The website is built using the [Flask Web Framework](https://flask.palletsprojects.com/en/2.0.x/) with [Flask-PyMongo](https://flask-pymongo.readthedocs.io/en/latest/).
+The [Jinja Template Language](https://jinja.palletsprojects.com/en/3.0.x/) is used throughout.
+
+[MongoDB Atlas](https://www.mongodb.com/) is used for data storage. Documentation detailing setup can be found [here](https://docs.atlas.mongodb.com/getting-started/).
