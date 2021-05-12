@@ -32,10 +32,10 @@
                 <div class="input-field col s12 l4">
                     <i class="fas fa-stopwatch prefix orange-text text-darken-2"></i>
                     <select value="{{ recipe.prep_time }}" id="prep_time" name="prep_time" class="validate" required>
-                        <option value="" disabled selected>Choose option..</option>
+                        <option value="" disabled>Choose option..</option>
                         {% for prep_time in prep_times %}
                         {% if recipe.prep_time == recipe.prep_time %}
-                        <option value="{{ recipe.prep_time }}" selected>{{ recipe.prep_time }}</option>
+                        <option value="{{ recipe.prep_time }}">{{ recipe.prep_time }}</option>
                         {% else %}
                         <option value="{{ recipe.prep_time }}">{{ recipe.prep_time }}</option>
                         {% endif %}
@@ -110,9 +110,8 @@
                     <i class="fas fa-plus-square "></i> Edit Recipe
                 </button>
             </div>
+        </form>
     </div>
-    </form>
-</div>
 </div>
 
 <!-- Image URL information modal -->
