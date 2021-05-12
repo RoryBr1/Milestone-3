@@ -46,14 +46,10 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-folder-open prefix orange-text text-darken-2"></i>
-                    <select value="" id="category_name" name="category_name" class="validate" required>
+                    <select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose option..</option>
                         {% for category in categories %}
-                        {% if category.category_name == recipe.category_name %}
-                        <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
-                        {% else %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
-                        {% endif %}
                         {% endfor %}
                     </select>
                     <label for="category_name">Category</label>
