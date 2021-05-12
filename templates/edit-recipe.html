@@ -31,7 +31,7 @@
                 <!-- Prep Time Select -->
                 <div class="input-field col s12 l4">
                     <i class="fas fa-stopwatch prefix orange-text text-darken-2"></i>
-                    <select value="{{ recipe.prep_time }}" id="prep_time" name="prep_time" class="validate" required>
+                    <select id="prep_time" name="prep_time" class="validate" required>
                         <option value="" disabled>Choose option..</option>
                         {% for prep_time in prep_times %}
                         {% if recipe.prep_time == recipe.prep_time %}
