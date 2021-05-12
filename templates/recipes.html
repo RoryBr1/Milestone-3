@@ -91,7 +91,7 @@
                         <a href="{{ url_for('show_recipe', recipe_id=recipe._id) }}"><img src="{{ recipe.img_url }}"
                                 alt="{{ recipe.recipe_name }}" class="recipe-card-img"></a>
                         <!-- Edit, Delete buttons (only shown when logged in as admin) -->
-                        <span class="edit-delete-buttons-container">
+                        <div class="edit-delete-buttons-container">
                             {% if session.user|lower == "admin1"|lower %}
                             <div class="row">
                                 <div class="col s12">
@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                             {% endif %}
-                        </span>
+                        </div>
                     </div>
 
                     <div class="card-action right-align">
@@ -165,6 +165,7 @@
             <a href="{{ url_for('get_recipes') }}">Back to homepage.</a>
         </div>
     </div>
+</div>
     {% endif %}
 
     {% endblock %}

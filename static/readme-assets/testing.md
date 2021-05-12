@@ -28,3 +28,8 @@
 ## CSS
 ![CSS validator](css-validator.png)
 * The _style.css_ file passed the [CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) with no errors or warning.
+
+<hr>
+
+## HTML
+![]
