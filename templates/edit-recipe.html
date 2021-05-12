@@ -31,7 +31,7 @@
                 <!-- Prep Time Select -->
                 <div class="input-field col s12 l4">
                     <i class="fas fa-stopwatch prefix orange-text text-darken-2"></i>
-                    <select id="category_name" name="category_name" class="validate" required>
+                    <select id="prep_time" name="prep_time" class="validate" required>
                         <option value="" disabled selected>Choose option..</option>
                         {% for category in categories %}
                         <option value="{{ category.category_name }}">{{ category.category_name }}</option>
@@ -66,7 +66,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pepper-hot prefix orange-text text-darken-2"></i>
                     <textarea id="ingredients" name="ingredients" placeholder="Type each ingredient on a new line"
-                        minlength="25" maxlength="700" type="text" class="materialize-textarea validate"
+                        minlength="25" maxlength="700" class="materialize-textarea validate"
                         required>{{ recipe.ingredients }}</textarea>
                     <label for="ingredients">Ingredients</label>
                     <span class="helper-text" data-error="Must be between 25 and 700 characters" data-success=""></span>
@@ -78,7 +78,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-clipboard-list prefix orange-text text-darken-2"></i>
                     <textarea id="recipe_instructions" name="recipe_instructions"
-                        placeholder="Type each step on a new line" minlength="25" maxlength="2000" type="text"
+                        placeholder="Type each step on a new line" minlength="25" maxlength="2000"
                         class="materialize-textarea validate" required>{{ recipe.recipe_instructions }}</textarea>
                     <label for="recipe_instructions">Recipe Instructions</label>
                     <span class="helper-text" data-error="Must be between 25 and 2000 characters"
