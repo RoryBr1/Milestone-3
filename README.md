@@ -256,9 +256,8 @@ Once the app is deployed, click "Open App" in Heroku on the project page. The pr
 
 <hr>
 
-# Credits
 
-<hr>
+# Credits
 
 - Recipe images, and the background image of the site, are from [Pexels](https://www.pexels.com/license/) and [PixaBay](https://pixabay.com/service/license/) and are used in accordance with their licensing.
 - The authentication system was built, with permission, using code by CodeInstitute's Tim Nelson. The relevant GitHub repository can be found [here](https://github.com/Code-Institute-Solutions/TaskManagerAuth/tree/main/02-UserAuthenticationAndAuthorization/03-register_functionality)
