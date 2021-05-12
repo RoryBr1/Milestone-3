@@ -93,10 +93,10 @@
                 <h5 class="center-align"><i class="fas fa-trash-alt grey-text text-lighten-1"></i> Rename
                     "{{ category.category_name }}"</h5><br>
                 <form method="POST" action="{{ url_for('rename_category', category_id=category._id) }}">
-                    <label for="rename_category">Rename category</label>
+                    <label for="rename_category.{{ category._id }}">Rename category</label>
                     <!-- Text input (retrieves existing category name as initial value) -->
-                    <input id="rename_category" name="rename_category" minlength="5" maxlength="24" type="text"
-                        class="validate" value="{{ category.category_name }}" required>
+                    <input id="rename_category.{{ category._id }}" name="rename_category" minlength="5" maxlength="24"
+                        type="text" class="validate" value="{{ category.category_name }}" required>
                     <div class="row center">
                         <!-- Submit button -->
                         <button type="submit" class="btn-small hvr-reveal cyan">
