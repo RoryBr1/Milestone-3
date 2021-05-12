@@ -97,13 +97,12 @@
                                 <div class="col s12">
                                     <!-- Edit button, links to edit-recipe page -->
                                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
-                                        class="btn cyan darken-1 edit-delete-btn hvr-reveal" alt="Edit this recipe">
+                                        class="btn cyan darken-1 edit-delete-btn hvr-reveal">
                                         <i class="fas fa-edit center"></i>
                                     </a>
                                     <!-- Delete button, opens modal -->
                                     <button data-target="{{ recipe._id }}"
-                                        class="btn red lighten-2 edit-delete-btn hvr-reveal modal-trigger"
-                                        alt="Delete this recipe"><i class="fas fa-trash-alt center"></i></button>
+                                        class="btn red lighten-2 edit-delete-btn hvr-reveal modal-trigger"><i class="fas fa-trash-alt center"></i></button>
                                 </div>
                             </div>
                             {% endif %}
