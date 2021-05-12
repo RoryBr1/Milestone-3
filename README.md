@@ -130,6 +130,10 @@ The site's structure consists of
     ![Flash Message](/static/readme-assets/flash-message.png)
     - _Flash messages are displayed at the top of the page and disappear after several seconds_
 
+**Developer Note**: The website has been designed with the intention that only the admin user can add or remove content. 
+Therefore, the registration page was removed after the _admin1_ user was created. If in future, additional users need to be created, a registration page can be made using 
+[this code](https://github.com/Code-Institute-Solutions/TaskManagerAuth/tree/main/02-UserAuthenticationAndAuthorization/03-register_functionality/templates) and linking to it from the homepage.
+
 <hr>
 
 ## Future Features
@@ -191,6 +195,10 @@ The website is built using the [Flask Web Framework](https://flask.palletsprojec
 - [Heroku](https://id.heroku.com/login) account
 - [MongoDB](https://www.mongodb.com/) account
 
+[⇧ Back to Top](#table-of-contents)
+
+<hr>
+
 ## GitPod Deployment
 
 1. Login to GitHub, and navigate to the [repository](https://github.com/RoryBr1/Milestone-3)
@@ -201,7 +209,7 @@ The website is built using the [Flask Web Framework](https://flask.palletsprojec
 
 4. Create the database in MongoDB.
     - Signup/login to MongoDB
-    - Create a cluster with a database named "junkfoodvegan
+    - Create a cluster with a database named "junkfoodvegan"
     - Within the cluster, create the following collections: _categories, recipes, prep_times, users._
 
 5. Create the environment variables
@@ -223,6 +231,10 @@ The website is built using the [Flask Web Framework](https://flask.palletsprojec
 
 7. Run the app by typing ``` python3 app.py ``` into the terminal.
 
+[⇧ Back to Top](#table-of-contents)
+
+<hr>
+
 ## Heroku
 
 1. In the GitPod terminal, type ``` pip3 freeze -- local > requirements.txt `` . 
@@ -234,15 +246,30 @@ The website is built using the [Flask Web Framework](https://flask.palletsprojec
 
 Once the app is deployed, click "Open App" in Heroku on the project page. The project should be successfully deployed and will update automatically when new GitHub commits are made.
 
+[⇧ Back to Top](#table-of-contents)
+
+<hr>
+<hr>
+
 # Testing
 [Click here](/static/readme-assets/testing.md) to view the Testing.md file.
 
+<hr>
+
 # Credits
+
+<hr>
 
 - Recipe images, and the background image of the site, are from [Pexels](https://www.pexels.com/license/) and [PixaBay](https://pixabay.com/service/license/) and are used in accordance with their licensing.
 - The authentication system was built, with permission, using code by CodeInstitute's Tim Nelson. The relevant GitHub repository can be found [here](https://github.com/Code-Institute-Solutions/TaskManagerAuth/tree/main/02-UserAuthenticationAndAuthorization/03-register_functionality)
+
+[⇧ Back to Top](#table-of-contents)
+
+<hr>
 
 ## Acknowledgements
 
 * Special thanks to [Code Institute](https://codeinstitute.net/) Tutor Support who helped me troubleshoot at multiple points in the development of the project.
 * Special thanks to my [Code Institute](https://codeinstitute.net/) mentor, Arnold Kyeza, who gave helpful guidance and constructive feedback at multiple points throughout the project. 
+
+[⇧ Back to Top](#table-of-contents)
